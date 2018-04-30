@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Configuracao.
+    -->
+    <changeSet id="20180430211209-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cliente_id"
+                                 baseTableName="configuracao"
+                                 constraintName="fk_configuracao_cliente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cliente"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_configuracao_id"
+                                 baseTableName="configuracao"
+                                 constraintName="fk_configuracao_tipo_configuracao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_configuracao"/>
+
+        <addForeignKeyConstraint baseColumnNames="codigo_customizado_id"
+                                 baseTableName="configuracao"
+                                 constraintName="fk_configuracao_codigo_customizado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="codigo_customizavel"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -13,9 +13,31 @@
     <include file="config/liquibase/changelog/20180430164134_added_entity_Inventario.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180430164135_added_entity_Transmissao.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180430164136_added_entity_Secao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211154_added_entity_MotivoAlteracao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211158_added_entity_Contagem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211159_added_entity_LogAlteracaoContagem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211200_added_entity_Cadastro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211201_added_entity_Mapeamento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211202_added_entity_StatusInventario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211203_added_entity_LogStatusInventario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211204_added_entity_CampoCustomizavelColeta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211205_added_entity_CampoCustomizavelCadastro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211206_added_entity_TipoConfiguracao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211207_added_entity_CodigoCustomizavel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211208_added_entity_ConfiguracaoColetor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211209_added_entity_Configuracao.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180430164134_added_entity_constraints_Inventario.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180430164135_added_entity_constraints_Transmissao.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180430164136_added_entity_constraints_Secao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211158_added_entity_constraints_Contagem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211159_added_entity_constraints_LogAlteracaoContagem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211200_added_entity_constraints_Cadastro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211201_added_entity_constraints_Mapeamento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211203_added_entity_constraints_LogStatusInventario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211204_added_entity_constraints_CampoCustomizavelColeta.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211205_added_entity_constraints_CampoCustomizavelCadastro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211208_added_entity_constraints_ConfiguracaoColetor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430211209_added_entity_constraints_Configuracao.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

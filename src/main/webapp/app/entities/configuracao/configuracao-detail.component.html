@@ -1,0 +1,180 @@
+
+<div *ngIf="configuracao">
+    <h2><span>Configuracao</span> {{configuracao.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Codigo Interno</span></dt>
+        <dd>
+            <span>{{configuracao.codigoInterno}}</span>
+        </dd>
+        <dt><span>Ean</span></dt>
+        <dd>
+            <span>{{configuracao.ean}}</span>
+        </dd>
+        <dt><span>Descricao</span></dt>
+        <dd>
+            <span>{{configuracao.descricao}}</span>
+        </dd>
+        <dt><span>Quantidade</span></dt>
+        <dd>
+            <span>{{configuracao.quantidade}}</span>
+        </dd>
+        <dt><span>Preco</span></dt>
+        <dd>
+            <span>{{configuracao.preco}}</span>
+        </dd>
+        <dt><span>Setor</span></dt>
+        <dd>
+            <span>{{configuracao.setor}}</span>
+        </dd>
+        <dt><span>Departamento</span></dt>
+        <dd>
+            <span>{{configuracao.departamento}}</span>
+        </dd>
+        <dt><span>Preco Custo</span></dt>
+        <dd>
+            <span>{{configuracao.precoCusto}}</span>
+        </dd>
+        <dt><span>Posicional</span></dt>
+        <dd>
+            <span>{{configuracao.posicional}}</span>
+        </dd>
+        <dt><span>Delimitador</span></dt>
+        <dd>
+            <span>{{configuracao.delimitador}}</span>
+        </dd>
+        <dt><span>Desconsiderar Linha Inicial</span></dt>
+        <dd>
+            <span>{{configuracao.desconsiderarLinhaInicial}}</span>
+        </dd>
+        <dt><span>Desconsiderar Linha Final</span></dt>
+        <dd>
+            <span>{{configuracao.desconsiderarLinhaFinal}}</span>
+        </dd>
+        <dt><span>String Customizado 1</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado1}}</span>
+        </dd>
+        <dt><span>String Customizado 2</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado2}}</span>
+        </dd>
+        <dt><span>String Customizado 3</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado3}}</span>
+        </dd>
+        <dt><span>String Customizado 4</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado4}}</span>
+        </dd>
+        <dt><span>String Customizado 5</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado5}}</span>
+        </dd>
+        <dt><span>String Customizado 6</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado6}}</span>
+        </dd>
+        <dt><span>String Customizado 7</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado7}}</span>
+        </dd>
+        <dt><span>String Customizado 8</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado8}}</span>
+        </dd>
+        <dt><span>String Customizado 9</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado9}}</span>
+        </dd>
+        <dt><span>String Customizado 10</span></dt>
+        <dd>
+            <span>{{configuracao.stringCustomizado10}}</span>
+        </dd>
+        <dt><span>Int Customizado 1</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado1}}</span>
+        </dd>
+        <dt><span>Int Customizado 2</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado2}}</span>
+        </dd>
+        <dt><span>Int Customizado 3</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado3}}</span>
+        </dd>
+        <dt><span>Int Customizado 4</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado4}}</span>
+        </dd>
+        <dt><span>Int Customizado 5</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado5}}</span>
+        </dd>
+        <dt><span>Int Customizado 6</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado6}}</span>
+        </dd>
+        <dt><span>Int Customizado 7</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado7}}</span>
+        </dd>
+        <dt><span>Int Customizado 8</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado8}}</span>
+        </dd>
+        <dt><span>Int Customizado 9</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado9}}</span>
+        </dd>
+        <dt><span>Int Customizado 10</span></dt>
+        <dd>
+            <span>{{configuracao.intCustomizado10}}</span>
+        </dd>
+        <dt><span>Bin Customizado 1</span></dt>
+        <dd>
+            <span>{{configuracao.binCustomizado1}}</span>
+        </dd>
+        <dt><span>Bin Customizado 2</span></dt>
+        <dd>
+            <span>{{configuracao.binCustomizado2}}</span>
+        </dd>
+        <dt><span>Bin Customizado 3</span></dt>
+        <dd>
+            <span>{{configuracao.binCustomizado3}}</span>
+        </dd>
+        <dt><span>Cliente</span></dt>
+        <dd>
+            <div *ngIf="configuracao.cliente">
+                <a [routerLink]="['/cliente', configuracao.cliente?.id]">{{configuracao.cliente?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Tipo Configuracao</span></dt>
+        <dd>
+            <div *ngIf="configuracao.tipoConfiguracao">
+                <a [routerLink]="['/tipo-configuracao', configuracao.tipoConfiguracao?.id]">{{configuracao.tipoConfiguracao?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Codigo Customizado</span></dt>
+        <dd>
+            <div *ngIf="configuracao.codigoCustomizado">
+                <a [routerLink]="['/codigo-customizavel', configuracao.codigoCustomizado?.id]">{{configuracao.codigoCustomizado?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'configuracao/'+ configuracao.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

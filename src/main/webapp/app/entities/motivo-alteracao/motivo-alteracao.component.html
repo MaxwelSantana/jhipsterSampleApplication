@@ -1,0 +1,58 @@
+<div>
+    <h2>
+        <span>Motivo Alteracaos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-motivo-alteracao" [routerLink]="['/', { outlets: { popup: ['motivo-alteracao-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Motivo Alteracao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="motivoAlteracaos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Descricao</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let motivoAlteracao of motivoAlteracaos ;trackBy: trackId">
+                <td><a [routerLink]="['../motivo-alteracao', motivoAlteracao.id ]">{{motivoAlteracao.id}}</a></td>
+                <td>{{motivoAlteracao.descricao}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../motivo-alteracao', motivoAlteracao.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'motivo-alteracao/'+ motivoAlteracao.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'motivo-alteracao/'+ motivoAlteracao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

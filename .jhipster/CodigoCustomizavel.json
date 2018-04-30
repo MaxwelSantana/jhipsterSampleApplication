@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codigo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "caminhoJar",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430211207",
+    "entityTableName": "codigo_customizavel",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

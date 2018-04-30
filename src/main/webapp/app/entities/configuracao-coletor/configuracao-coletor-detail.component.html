@@ -1,0 +1,34 @@
+
+<div *ngIf="configuracaoColetor">
+    <h2><span>Configuracao Coletor</span> {{configuracaoColetor.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Cliente</span></dt>
+        <dd>
+            <div *ngIf="configuracaoColetor.cliente">
+                <a [routerLink]="['/cliente', configuracaoColetor.cliente?.id]">{{configuracaoColetor.cliente?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Codigo Customizado</span></dt>
+        <dd>
+            <div *ngIf="configuracaoColetor.codigoCustomizado">
+                <a [routerLink]="['/codigo-customizavel', configuracaoColetor.codigoCustomizado?.id]">{{configuracaoColetor.codigoCustomizado?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'configuracao-coletor/'+ configuracaoColetor.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

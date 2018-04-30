@@ -1,0 +1,147 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCampoCustomizavelCadastroLabel">Create or edit a Campo Customizavel Cadastro</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!campoCustomizavelCadastro.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="campoCustomizavelCadastro.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado1">String Customizado 1</label>
+            <input type="text" class="form-control" name="stringCustomizado1" id="field_stringCustomizado1"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado1" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado2">String Customizado 2</label>
+            <input type="text" class="form-control" name="stringCustomizado2" id="field_stringCustomizado2"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado2" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado3">String Customizado 3</label>
+            <input type="text" class="form-control" name="stringCustomizado3" id="field_stringCustomizado3"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado3" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado4">String Customizado 4</label>
+            <input type="text" class="form-control" name="stringCustomizado4" id="field_stringCustomizado4"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado4" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado5">String Customizado 5</label>
+            <input type="text" class="form-control" name="stringCustomizado5" id="field_stringCustomizado5"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado5" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado6">String Customizado 6</label>
+            <input type="text" class="form-control" name="stringCustomizado6" id="field_stringCustomizado6"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado6" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado7">String Customizado 7</label>
+            <input type="text" class="form-control" name="stringCustomizado7" id="field_stringCustomizado7"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado7" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado8">String Customizado 8</label>
+            <input type="text" class="form-control" name="stringCustomizado8" id="field_stringCustomizado8"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado8" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado9">String Customizado 9</label>
+            <input type="text" class="form-control" name="stringCustomizado9" id="field_stringCustomizado9"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado9" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_stringCustomizado10">String Customizado 10</label>
+            <input type="text" class="form-control" name="stringCustomizado10" id="field_stringCustomizado10"
+                [(ngModel)]="campoCustomizavelCadastro.stringCustomizado10" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado1">Int Customizado 1</label>
+            <input type="number" class="form-control" name="intCustomizado1" id="field_intCustomizado1"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado1" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado2">Int Customizado 2</label>
+            <input type="number" class="form-control" name="intCustomizado2" id="field_intCustomizado2"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado2" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado3">Int Customizado 3</label>
+            <input type="number" class="form-control" name="intCustomizado3" id="field_intCustomizado3"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado3" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado4">Int Customizado 4</label>
+            <input type="number" class="form-control" name="intCustomizado4" id="field_intCustomizado4"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado4" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado5">Int Customizado 5</label>
+            <input type="number" class="form-control" name="intCustomizado5" id="field_intCustomizado5"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado5" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado6">Int Customizado 6</label>
+            <input type="number" class="form-control" name="intCustomizado6" id="field_intCustomizado6"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado6" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado7">Int Customizado 7</label>
+            <input type="number" class="form-control" name="intCustomizado7" id="field_intCustomizado7"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado7" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado8">Int Customizado 8</label>
+            <input type="number" class="form-control" name="intCustomizado8" id="field_intCustomizado8"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado8" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado9">Int Customizado 9</label>
+            <input type="number" class="form-control" name="intCustomizado9" id="field_intCustomizado9"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado9" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_intCustomizado10">Int Customizado 10</label>
+            <input type="number" class="form-control" name="intCustomizado10" id="field_intCustomizado10"
+                [(ngModel)]="campoCustomizavelCadastro.intCustomizado10" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_binCustomizado1">Bin Customizado 1</label>
+            <input type="checkbox" class="form-control" name="binCustomizado1" id="field_binCustomizado1"
+                [(ngModel)]="campoCustomizavelCadastro.binCustomizado1" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_binCustomizado2">Bin Customizado 2</label>
+            <input type="checkbox" class="form-control" name="binCustomizado2" id="field_binCustomizado2"
+                [(ngModel)]="campoCustomizavelCadastro.binCustomizado2" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_binCustomizado3">Bin Customizado 3</label>
+            <input type="checkbox" class="form-control" name="binCustomizado3" id="field_binCustomizado3"
+                [(ngModel)]="campoCustomizavelCadastro.binCustomizado3" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_cliente">Cliente</label>
+            <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="campoCustomizavelCadastro.cliente">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="clienteOption.id === campoCustomizavelCadastro.cliente?.id ? campoCustomizavelCadastro.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,108 @@
+<div>
+    <h2>
+        <span>Campo Customizavel Coletas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-campo-customizavel-coleta" [routerLink]="['/', { outlets: { popup: ['campo-customizavel-coleta-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Campo Customizavel Coleta
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="campoCustomizavelColetas">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>String Customizado 1</span></th>
+            <th><span>String Customizado 2</span></th>
+            <th><span>String Customizado 3</span></th>
+            <th><span>String Customizado 4</span></th>
+            <th><span>String Customizado 5</span></th>
+            <th><span>String Customizado 6</span></th>
+            <th><span>String Customizado 7</span></th>
+            <th><span>String Customizado 8</span></th>
+            <th><span>String Customizado 9</span></th>
+            <th><span>String Customizado 10</span></th>
+            <th><span>Int Customizado 1</span></th>
+            <th><span>Int Customizado 2</span></th>
+            <th><span>Int Customizado 3</span></th>
+            <th><span>Int Customizado 4</span></th>
+            <th><span>Int Customizado 5</span></th>
+            <th><span>Int Customizado 6</span></th>
+            <th><span>Int Customizado 7</span></th>
+            <th><span>Int Customizado 8</span></th>
+            <th><span>Int Customizado 9</span></th>
+            <th><span>Int Customizado 10</span></th>
+            <th><span>Bin Customizado 1</span></th>
+            <th><span>Bin Customizado 2</span></th>
+            <th><span>Bin Customizado 3</span></th>
+            <th><span>Cliente</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let campoCustomizavelColeta of campoCustomizavelColetas ;trackBy: trackId">
+                <td><a [routerLink]="['../campo-customizavel-coleta', campoCustomizavelColeta.id ]">{{campoCustomizavelColeta.id}}</a></td>
+                <td>{{campoCustomizavelColeta.stringCustomizado1}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado2}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado3}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado4}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado5}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado6}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado7}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado8}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado9}}</td>
+                <td>{{campoCustomizavelColeta.stringCustomizado10}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado1}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado2}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado3}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado4}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado5}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado6}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado7}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado8}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado9}}</td>
+                <td>{{campoCustomizavelColeta.intCustomizado10}}</td>
+                <td>{{campoCustomizavelColeta.binCustomizado1}}</td>
+                <td>{{campoCustomizavelColeta.binCustomizado2}}</td>
+                <td>{{campoCustomizavelColeta.binCustomizado3}}</td>
+                <td>
+                    <div *ngIf="campoCustomizavelColeta.cliente">
+                        <a [routerLink]="['../cliente', campoCustomizavelColeta.cliente?.id ]" >{{campoCustomizavelColeta.cliente?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../campo-customizavel-coleta', campoCustomizavelColeta.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'campo-customizavel-coleta/'+ campoCustomizavelColeta.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'campo-customizavel-coleta/'+ campoCustomizavelColeta.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

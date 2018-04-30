@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "statusInventario",
+            "otherEntityName": "statusInventario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "logStatusInventario"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "inventario",
+            "otherEntityName": "inventario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "logStatusInventario"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "timeStamp",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180430211203",
+    "entityTableName": "log_status_inventario",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

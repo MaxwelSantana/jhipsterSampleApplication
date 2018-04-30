@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "contagem",
+            "otherEntityName": "contagem",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "logAlteracaoContagem"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "campo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valorAntigo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valorNovo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "timeStamp",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20180430211159",
+    "entityTableName": "log_alteracao_contagem",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

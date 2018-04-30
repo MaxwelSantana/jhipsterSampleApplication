@@ -1,0 +1,144 @@
+<div>
+    <h2>
+        <span>Configuracaos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-configuracao" [routerLink]="['/', { outlets: { popup: ['configuracao-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Configuracao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="configuracaos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Codigo Interno</span></th>
+            <th><span>Ean</span></th>
+            <th><span>Descricao</span></th>
+            <th><span>Quantidade</span></th>
+            <th><span>Preco</span></th>
+            <th><span>Setor</span></th>
+            <th><span>Departamento</span></th>
+            <th><span>Preco Custo</span></th>
+            <th><span>Posicional</span></th>
+            <th><span>Delimitador</span></th>
+            <th><span>Desconsiderar Linha Inicial</span></th>
+            <th><span>Desconsiderar Linha Final</span></th>
+            <th><span>String Customizado 1</span></th>
+            <th><span>String Customizado 2</span></th>
+            <th><span>String Customizado 3</span></th>
+            <th><span>String Customizado 4</span></th>
+            <th><span>String Customizado 5</span></th>
+            <th><span>String Customizado 6</span></th>
+            <th><span>String Customizado 7</span></th>
+            <th><span>String Customizado 8</span></th>
+            <th><span>String Customizado 9</span></th>
+            <th><span>String Customizado 10</span></th>
+            <th><span>Int Customizado 1</span></th>
+            <th><span>Int Customizado 2</span></th>
+            <th><span>Int Customizado 3</span></th>
+            <th><span>Int Customizado 4</span></th>
+            <th><span>Int Customizado 5</span></th>
+            <th><span>Int Customizado 6</span></th>
+            <th><span>Int Customizado 7</span></th>
+            <th><span>Int Customizado 8</span></th>
+            <th><span>Int Customizado 9</span></th>
+            <th><span>Int Customizado 10</span></th>
+            <th><span>Bin Customizado 1</span></th>
+            <th><span>Bin Customizado 2</span></th>
+            <th><span>Bin Customizado 3</span></th>
+            <th><span>Cliente</span></th>
+            <th><span>Tipo Configuracao</span></th>
+            <th><span>Codigo Customizado</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let configuracao of configuracaos ;trackBy: trackId">
+                <td><a [routerLink]="['../configuracao', configuracao.id ]">{{configuracao.id}}</a></td>
+                <td>{{configuracao.codigoInterno}}</td>
+                <td>{{configuracao.ean}}</td>
+                <td>{{configuracao.descricao}}</td>
+                <td>{{configuracao.quantidade}}</td>
+                <td>{{configuracao.preco}}</td>
+                <td>{{configuracao.setor}}</td>
+                <td>{{configuracao.departamento}}</td>
+                <td>{{configuracao.precoCusto}}</td>
+                <td>{{configuracao.posicional}}</td>
+                <td>{{configuracao.delimitador}}</td>
+                <td>{{configuracao.desconsiderarLinhaInicial}}</td>
+                <td>{{configuracao.desconsiderarLinhaFinal}}</td>
+                <td>{{configuracao.stringCustomizado1}}</td>
+                <td>{{configuracao.stringCustomizado2}}</td>
+                <td>{{configuracao.stringCustomizado3}}</td>
+                <td>{{configuracao.stringCustomizado4}}</td>
+                <td>{{configuracao.stringCustomizado5}}</td>
+                <td>{{configuracao.stringCustomizado6}}</td>
+                <td>{{configuracao.stringCustomizado7}}</td>
+                <td>{{configuracao.stringCustomizado8}}</td>
+                <td>{{configuracao.stringCustomizado9}}</td>
+                <td>{{configuracao.stringCustomizado10}}</td>
+                <td>{{configuracao.intCustomizado1}}</td>
+                <td>{{configuracao.intCustomizado2}}</td>
+                <td>{{configuracao.intCustomizado3}}</td>
+                <td>{{configuracao.intCustomizado4}}</td>
+                <td>{{configuracao.intCustomizado5}}</td>
+                <td>{{configuracao.intCustomizado6}}</td>
+                <td>{{configuracao.intCustomizado7}}</td>
+                <td>{{configuracao.intCustomizado8}}</td>
+                <td>{{configuracao.intCustomizado9}}</td>
+                <td>{{configuracao.intCustomizado10}}</td>
+                <td>{{configuracao.binCustomizado1}}</td>
+                <td>{{configuracao.binCustomizado2}}</td>
+                <td>{{configuracao.binCustomizado3}}</td>
+                <td>
+                    <div *ngIf="configuracao.cliente">
+                        <a [routerLink]="['../cliente', configuracao.cliente?.id ]" >{{configuracao.cliente?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="configuracao.tipoConfiguracao">
+                        <a [routerLink]="['../tipo-configuracao', configuracao.tipoConfiguracao?.id ]" >{{configuracao.tipoConfiguracao?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="configuracao.codigoCustomizado">
+                        <a [routerLink]="['../codigo-customizavel', configuracao.codigoCustomizado?.id ]" >{{configuracao.codigoCustomizado?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../configuracao', configuracao.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'configuracao/'+ configuracao.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'configuracao/'+ configuracao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

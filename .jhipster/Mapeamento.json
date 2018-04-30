@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "inventario",
+            "otherEntityName": "inventario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "mapeamento"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "secaoInicial",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "secaoFinal",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "deposito",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "loja",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "inicialInt",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "finalInt",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180430211201",
+    "entityTableName": "mapeamento",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

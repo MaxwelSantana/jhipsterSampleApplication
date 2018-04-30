@@ -1,0 +1,156 @@
+
+<div *ngIf="contagem">
+    <h2><span>Contagem</span> {{contagem.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Codigo Secao</span></dt>
+        <dd>
+            <span>{{contagem.codigoSecao}}</span>
+        </dd>
+        <dt><span>Codigo Interno</span></dt>
+        <dd>
+            <span>{{contagem.codigoInterno}}</span>
+        </dd>
+        <dt><span>Ean</span></dt>
+        <dd>
+            <span>{{contagem.ean}}</span>
+        </dd>
+        <dt><span>Quantidade</span></dt>
+        <dd>
+            <span>{{contagem.quantidade}}</span>
+        </dd>
+        <dt><span>Quantidade Original</span></dt>
+        <dd>
+            <span>{{contagem.quantidadeOriginal}}</span>
+        </dd>
+        <dt><span>Time Stamp</span></dt>
+        <dd>
+            <span>{{contagem.timeStamp | date:'medium'}}</span>
+        </dd>
+        <dt><span>String Customizado 1</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado1}}</span>
+        </dd>
+        <dt><span>String Customizado 2</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado2}}</span>
+        </dd>
+        <dt><span>String Customizado 3</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado3}}</span>
+        </dd>
+        <dt><span>String Customizado 4</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado4}}</span>
+        </dd>
+        <dt><span>String Customizado 5</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado5}}</span>
+        </dd>
+        <dt><span>String Customizado 6</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado6}}</span>
+        </dd>
+        <dt><span>String Customizado 7</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado7}}</span>
+        </dd>
+        <dt><span>String Customizado 8</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado8}}</span>
+        </dd>
+        <dt><span>String Customizado 9</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado9}}</span>
+        </dd>
+        <dt><span>String Customizado 10</span></dt>
+        <dd>
+            <span>{{contagem.stringCustomizado10}}</span>
+        </dd>
+        <dt><span>Int Customizado 1</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado1}}</span>
+        </dd>
+        <dt><span>Int Customizado 2</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado2}}</span>
+        </dd>
+        <dt><span>Int Customizado 3</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado3}}</span>
+        </dd>
+        <dt><span>Int Customizado 4</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado4}}</span>
+        </dd>
+        <dt><span>Int Customizado 5</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado5}}</span>
+        </dd>
+        <dt><span>Int Customizado 6</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado6}}</span>
+        </dd>
+        <dt><span>Int Customizado 7</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado7}}</span>
+        </dd>
+        <dt><span>Int Customizado 8</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado8}}</span>
+        </dd>
+        <dt><span>Int Customizado 9</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado9}}</span>
+        </dd>
+        <dt><span>Int Customizado 10</span></dt>
+        <dd>
+            <span>{{contagem.intCustomizado10}}</span>
+        </dd>
+        <dt><span>Bin Customizado 1</span></dt>
+        <dd>
+            <span>{{contagem.binCustomizado1}}</span>
+        </dd>
+        <dt><span>Bin Customizado 2</span></dt>
+        <dd>
+            <span>{{contagem.binCustomizado2}}</span>
+        </dd>
+        <dt><span>Bin Customizado 3</span></dt>
+        <dd>
+            <span>{{contagem.binCustomizado3}}</span>
+        </dd>
+        <dt><span>Secao</span></dt>
+        <dd>
+            <div *ngIf="contagem.secao">
+                <a [routerLink]="['/secao', contagem.secao?.id]">{{contagem.secao?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Status Contagem</span></dt>
+        <dd>
+            <div *ngIf="contagem.statusContagem">
+                <a [routerLink]="['/status-contagem', contagem.statusContagem?.id]">{{contagem.statusContagem?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Motivo Alteracao</span></dt>
+        <dd>
+            <div *ngIf="contagem.motivoAlteracao">
+                <a [routerLink]="['/motivo-alteracao', contagem.motivoAlteracao?.id]">{{contagem.motivoAlteracao?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'contagem/'+ contagem.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

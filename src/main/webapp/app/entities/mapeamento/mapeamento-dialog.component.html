@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMapeamentoLabel">Create or edit a Mapeamento</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!mapeamento.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="mapeamento.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_secaoInicial">Secao Inicial</label>
+            <input type="text" class="form-control" name="secaoInicial" id="field_secaoInicial"
+                [(ngModel)]="mapeamento.secaoInicial" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_secaoFinal">Secao Final</label>
+            <input type="text" class="form-control" name="secaoFinal" id="field_secaoFinal"
+                [(ngModel)]="mapeamento.secaoFinal" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_descricao">Descricao</label>
+            <input type="text" class="form-control" name="descricao" id="field_descricao"
+                [(ngModel)]="mapeamento.descricao" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_deposito">Deposito</label>
+            <input type="checkbox" class="form-control" name="deposito" id="field_deposito"
+                [(ngModel)]="mapeamento.deposito" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_loja">Loja</label>
+            <input type="checkbox" class="form-control" name="loja" id="field_loja"
+                [(ngModel)]="mapeamento.loja" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_inicialInt">Inicial Int</label>
+            <input type="number" class="form-control" name="inicialInt" id="field_inicialInt"
+                [(ngModel)]="mapeamento.inicialInt" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_finalInt">Final Int</label>
+            <input type="number" class="form-control" name="finalInt" id="field_finalInt"
+                [(ngModel)]="mapeamento.finalInt" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_inventario">Inventario</label>
+            <select class="form-control" id="field_inventario" name="inventario" [(ngModel)]="mapeamento.inventario">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="inventarioOption.id === mapeamento.inventario?.id ? mapeamento.inventario : inventarioOption" *ngFor="let inventarioOption of inventarios; trackBy: trackInventarioById">{{inventarioOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

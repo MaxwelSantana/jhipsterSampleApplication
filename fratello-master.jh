@@ -20,6 +20,10 @@ entity StatusContagem {
 	Descricao String
 }
 
+entity MotivoAlteracao {
+	Descricao String
+}
+
 entity Inventario {
     NumeroLoja String
     DataInventario LocalDate
@@ -39,6 +43,200 @@ entity Secao {
 	Codigo String
 }
 
+entity Contagem {
+	CodigoSecao String
+    CodigoInterno String
+    Ean String
+    Quantidade BigDecimal
+    QuantidadeOriginal BigDecimal
+    TimeStamp Instant
+    StringCustomizado1 String,
+    StringCustomizado2 String,
+    StringCustomizado3 String,
+    StringCustomizado4 String,
+    StringCustomizado5 String,
+    StringCustomizado6 String,
+    StringCustomizado7 String,
+    StringCustomizado8 String,
+    StringCustomizado9 String,
+    StringCustomizado10 String,
+    IntCustomizado1 BigDecimal,
+    IntCustomizado2 BigDecimal,
+    IntCustomizado3 BigDecimal,
+    IntCustomizado4 BigDecimal,
+    IntCustomizado5 BigDecimal,
+    IntCustomizado6 BigDecimal,
+    IntCustomizado7 BigDecimal,
+    IntCustomizado8 BigDecimal,
+    IntCustomizado9 BigDecimal,
+    IntCustomizado10 BigDecimal,
+    BinCustomizado1 Boolean,
+    BinCustomizado2 Boolean,
+    BinCustomizado3 Boolean
+}
+
+entity LogAlteracaoContagem {
+	Campo String
+    ValorAntigo String
+    ValorNovo String
+    TimeStamp Instant
+}
+
+entity Cadastro {
+	CodigoInterno String
+    Ean String
+    Descricao String
+    Quantidade BigDecimal
+    Preco BigDecimal
+    PrecoCusto BigDecimal
+    Setor String
+    Departamento String
+    StringCustomizado1 String,
+    StringCustomizado2 String,
+    StringCustomizado3 String,
+    StringCustomizado4 String,
+    StringCustomizado5 String,
+    StringCustomizado6 String,
+    StringCustomizado7 String,
+    StringCustomizado8 String,
+    StringCustomizado9 String,
+    StringCustomizado10 String,
+    IntCustomizado1 BigDecimal,
+    IntCustomizado2 BigDecimal,
+    IntCustomizado3 BigDecimal,
+    IntCustomizado4 BigDecimal,
+    IntCustomizado5 BigDecimal,
+    IntCustomizado6 BigDecimal,
+    IntCustomizado7 BigDecimal,
+    IntCustomizado8 BigDecimal,
+    IntCustomizado9 BigDecimal,
+    IntCustomizado10 BigDecimal,
+    BinCustomizado1 Boolean,
+    BinCustomizado2 Boolean,
+    BinCustomizado3 Boolean
+}
+
+entity Mapeamento {
+	SecaoInicial String
+    SecaoFinal String
+    Descricao String
+    Deposito Boolean
+    Loja Boolean
+    InicialInt Integer
+    FinalInt Integer
+}
+
+entity StatusInventario {
+	Descricao String
+}
+
+entity LogStatusInventario {
+	TimeStamp Instant
+}
+
+entity CampoCustomizavelColeta {
+	StringCustomizado1 String,
+    StringCustomizado2 String,
+    StringCustomizado3 String,
+    StringCustomizado4 String,
+    StringCustomizado5 String,
+    StringCustomizado6 String,
+    StringCustomizado7 String,
+    StringCustomizado8 String,
+    StringCustomizado9 String,
+    StringCustomizado10 String,
+    IntCustomizado1 BigDecimal,
+    IntCustomizado2 BigDecimal,
+    IntCustomizado3 BigDecimal,
+    IntCustomizado4 BigDecimal,
+    IntCustomizado5 BigDecimal,
+    IntCustomizado6 BigDecimal,
+    IntCustomizado7 BigDecimal,
+    IntCustomizado8 BigDecimal,
+    IntCustomizado9 BigDecimal,
+    IntCustomizado10 BigDecimal,
+    BinCustomizado1 Boolean,
+    BinCustomizado2 Boolean,
+    BinCustomizado3 Boolean
+}
+
+entity CampoCustomizavelCadastro {
+	StringCustomizado1 String,
+    StringCustomizado2 String,
+    StringCustomizado3 String,
+    StringCustomizado4 String,
+    StringCustomizado5 String,
+    StringCustomizado6 String,
+    StringCustomizado7 String,
+    StringCustomizado8 String,
+    StringCustomizado9 String,
+    StringCustomizado10 String,
+    IntCustomizado1 BigDecimal,
+    IntCustomizado2 BigDecimal,
+    IntCustomizado3 BigDecimal,
+    IntCustomizado4 BigDecimal,
+    IntCustomizado5 BigDecimal,
+    IntCustomizado6 BigDecimal,
+    IntCustomizado7 BigDecimal,
+    IntCustomizado8 BigDecimal,
+    IntCustomizado9 BigDecimal,
+    IntCustomizado10 BigDecimal,
+    BinCustomizado1 Boolean,
+    BinCustomizado2 Boolean,
+    BinCustomizado3 Boolean
+}
+
+entity TipoConfiguracao {
+	Descricao String
+}
+
+entity CodigoCustomizavel {
+	Descricao String
+    Codigo String
+    CaminhoJar String
+}
+
+entity ConfiguracaoColetor {
+}
+
+entity Configuracao {
+	CodigoInterno String
+    Ean String
+    Descricao String
+    Quantidade String
+    Preco String
+    Setor String
+    Departamento String
+    PrecoCusto String
+    Posicional Boolean
+    Delimitador String
+    DesconsiderarLinhaInicial Integer
+    DesconsiderarLinhaFinal Integer,
+    StringCustomizado1 String,
+    StringCustomizado2 String,
+    StringCustomizado3 String,
+    StringCustomizado4 String,
+    StringCustomizado5 String,
+    StringCustomizado6 String,
+    StringCustomizado7 String,
+    StringCustomizado8 String,
+    StringCustomizado9 String,
+    StringCustomizado10 String,
+    IntCustomizado1 String,
+    IntCustomizado2 String,
+    IntCustomizado3 String,
+    IntCustomizado4 String,
+    IntCustomizado5 String,
+    IntCustomizado6 String,
+    IntCustomizado7 String,
+    IntCustomizado8 String,
+    IntCustomizado9 String,
+    IntCustomizado10 String,
+    BinCustomizado1 String,
+    BinCustomizado2 String,
+    BinCustomizado3 String
+}
+
 relationship OneToOne {
 	Inventario{funcionarioLider} to Funcionario
     Inventario{cliente} to Cliente
@@ -50,6 +248,30 @@ relationship OneToOne {
     
     Secao{transmissao} to Transmissao
     Secao{statusContagem} to StatusContagem
+    
+    Contagem{secao} to Secao
+    Contagem{statusContagem} to StatusContagem
+    Contagem{motivoAlteracao} to MotivoAlteracao
+    
+    LogAlteracaoContagem{contagem} to Contagem
+    
+    Cadastro{inventario} to Inventario
+    
+    Mapeamento{inventario} to Inventario
+    
+    LogStatusInventario{statusInventario} to StatusInventario
+    LogStatusInventario{inventario} to Inventario
+    
+    CampoCustomizavelColeta{cliente} to Cliente
+    
+    CampoCustomizavelCadastro{cliente} to Cliente
+    
+    Configuracao{cliente} to Cliente
+    Configuracao{tipoConfiguracao} to TipoConfiguracao
+    Configuracao{codigoCustomizado} to CodigoCustomizavel
+    
+    ConfiguracaoColetor{cliente} to Cliente
+    ConfiguracaoColetor{codigoCustomizado} to CodigoCustomizavel
 }
 
 

@@ -1,0 +1,108 @@
+<div>
+    <h2>
+        <span>Campo Customizavel Cadastros</span>
+        <button class="btn btn-primary float-right jh-create-entity create-campo-customizavel-cadastro" [routerLink]="['/', { outlets: { popup: ['campo-customizavel-cadastro-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Campo Customizavel Cadastro
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="campoCustomizavelCadastros">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>String Customizado 1</span></th>
+            <th><span>String Customizado 2</span></th>
+            <th><span>String Customizado 3</span></th>
+            <th><span>String Customizado 4</span></th>
+            <th><span>String Customizado 5</span></th>
+            <th><span>String Customizado 6</span></th>
+            <th><span>String Customizado 7</span></th>
+            <th><span>String Customizado 8</span></th>
+            <th><span>String Customizado 9</span></th>
+            <th><span>String Customizado 10</span></th>
+            <th><span>Int Customizado 1</span></th>
+            <th><span>Int Customizado 2</span></th>
+            <th><span>Int Customizado 3</span></th>
+            <th><span>Int Customizado 4</span></th>
+            <th><span>Int Customizado 5</span></th>
+            <th><span>Int Customizado 6</span></th>
+            <th><span>Int Customizado 7</span></th>
+            <th><span>Int Customizado 8</span></th>
+            <th><span>Int Customizado 9</span></th>
+            <th><span>Int Customizado 10</span></th>
+            <th><span>Bin Customizado 1</span></th>
+            <th><span>Bin Customizado 2</span></th>
+            <th><span>Bin Customizado 3</span></th>
+            <th><span>Cliente</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let campoCustomizavelCadastro of campoCustomizavelCadastros ;trackBy: trackId">
+                <td><a [routerLink]="['../campo-customizavel-cadastro', campoCustomizavelCadastro.id ]">{{campoCustomizavelCadastro.id}}</a></td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado1}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado2}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado3}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado4}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado5}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado6}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado7}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado8}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado9}}</td>
+                <td>{{campoCustomizavelCadastro.stringCustomizado10}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado1}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado2}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado3}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado4}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado5}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado6}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado7}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado8}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado9}}</td>
+                <td>{{campoCustomizavelCadastro.intCustomizado10}}</td>
+                <td>{{campoCustomizavelCadastro.binCustomizado1}}</td>
+                <td>{{campoCustomizavelCadastro.binCustomizado2}}</td>
+                <td>{{campoCustomizavelCadastro.binCustomizado3}}</td>
+                <td>
+                    <div *ngIf="campoCustomizavelCadastro.cliente">
+                        <a [routerLink]="['../cliente', campoCustomizavelCadastro.cliente?.id ]" >{{campoCustomizavelCadastro.cliente?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../campo-customizavel-cadastro', campoCustomizavelCadastro.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'campo-customizavel-cadastro/'+ campoCustomizavelCadastro.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'campo-customizavel-cadastro/'+ campoCustomizavelCadastro.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

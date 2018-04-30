@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity LogStatusInventario.
+    -->
+    <changeSet id="20180430211203-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="status_inventario_id"
+                                 baseTableName="log_status_inventario"
+                                 constraintName="fk_log_status_inventario_status_inventario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status_inventario"/>
+
+        <addForeignKeyConstraint baseColumnNames="inventario_id"
+                                 baseTableName="log_status_inventario"
+                                 constraintName="fk_log_status_inventario_inventario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inventario"/>
+
+    </changeSet>
+</databaseChangeLog>

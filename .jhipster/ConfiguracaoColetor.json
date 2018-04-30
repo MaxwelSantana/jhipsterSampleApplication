@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "configuracaoColetor"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "codigoCustomizado",
+            "otherEntityName": "codigoCustomizavel",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "configuracaoColetor"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20180430211208",
+    "entityTableName": "configuracao_coletor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
