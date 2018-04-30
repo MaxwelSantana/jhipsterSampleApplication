@@ -1,11 +1,11 @@
 entity Cliente {
-	IdCliente Int
+	IdCliente Integer
     Nome String
     Sigla String
 }
 
 entity Funcionario {
-	IdFuncionario Int
+	IdFuncionario Integer
     Nome String
     Cpf String
 }
@@ -28,7 +28,7 @@ entity Inventario {
     OrdemServico String
     GerenteLoja String
     LiderInventario String
-    QtdPessoas Int
+    QtdPessoas Integer
     NomeLoja String
 }
 
