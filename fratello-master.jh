@@ -1,11 +1,9 @@
 entity Cliente {
-	IdCliente Integer
     Nome String
     Sigla String
 }
 
 entity Funcionario {
-	IdFuncionario Integer
     Nome String
     Cpf String
 }
