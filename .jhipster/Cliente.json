@@ -3,10 +3,6 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "idCliente",
-            "fieldType": "Integer"
-        },
-        {
             "fieldName": "nome",
             "fieldType": "String"
         },

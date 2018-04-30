@@ -22,9 +22,6 @@ public class Funcionario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "id_funcionario")
-    private Integer idFuncionario;
-
     @Column(name = "nome")
     private String nome;
 
@@ -38,19 +35,6 @@ public class Funcionario implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getIdFuncionario() {
-        return idFuncionario;
-    }
-
-    public Funcionario idFuncionario(Integer idFuncionario) {
-        this.idFuncionario = idFuncionario;
-        return this;
-    }
-
-    public void setIdFuncionario(Integer idFuncionario) {
-        this.idFuncionario = idFuncionario;
     }
 
     public String getNome() {
@@ -104,7 +88,6 @@ public class Funcionario implements Serializable {
     public String toString() {
         return "Funcionario{" +
             "id=" + getId() +
-            ", idFuncionario=" + getIdFuncionario() +
             ", nome='" + getNome() + "'" +
             ", cpf='" + getCpf() + "'" +
             "}";

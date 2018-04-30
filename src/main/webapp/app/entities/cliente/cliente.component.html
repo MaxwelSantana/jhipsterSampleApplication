@@ -17,7 +17,6 @@
             <thead>
             <tr>
             <th><span>ID</span></th>
-            <th><span>Id Cliente</span></th>
             <th><span>Nome</span></th>
             <th><span>Sigla</span></th>
             <th></th>
@@ -26,7 +25,6 @@
             <tbody>
             <tr *ngFor="let cliente of clientes ;trackBy: trackId">
                 <td><a [routerLink]="['../cliente', cliente.id ]">{{cliente.id}}</a></td>
-                <td>{{cliente.idCliente}}</td>
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.sigla}}</td>
                 <td class="text-right">

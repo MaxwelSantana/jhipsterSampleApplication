@@ -3,10 +3,6 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "idFuncionario",
-            "fieldType": "Integer"
-        },
-        {
             "fieldName": "nome",
             "fieldType": "String"
         },

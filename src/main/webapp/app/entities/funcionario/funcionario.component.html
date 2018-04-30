@@ -17,7 +17,6 @@
             <thead>
             <tr>
             <th><span>ID</span></th>
-            <th><span>Id Funcionario</span></th>
             <th><span>Nome</span></th>
             <th><span>Cpf</span></th>
             <th></th>
@@ -26,7 +25,6 @@
             <tbody>
             <tr *ngFor="let funcionario of funcionarios ;trackBy: trackId">
                 <td><a [routerLink]="['../funcionario', funcionario.id ]">{{funcionario.id}}</a></td>
-                <td>{{funcionario.idFuncionario}}</td>
                 <td>{{funcionario.nome}}</td>
                 <td>{{funcionario.cpf}}</td>
                 <td class="text-right">
