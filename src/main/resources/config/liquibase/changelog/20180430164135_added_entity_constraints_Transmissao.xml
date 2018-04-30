@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Transmissao.
+    -->
+    <changeSet id="20180430164135-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="inventario_id"
+                                 baseTableName="transmissao"
+                                 constraintName="fk_transmissao_inventario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inventario"/>
+
+        <addForeignKeyConstraint baseColumnNames="funcionario_id"
+                                 baseTableName="transmissao"
+                                 constraintName="fk_transmissao_funcionario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="funcionario"/>
+
+        <addForeignKeyConstraint baseColumnNames="coletor_id"
+                                 baseTableName="transmissao"
+                                 constraintName="fk_transmissao_coletor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="coletor"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_contagem_id"
+                                 baseTableName="transmissao"
+                                 constraintName="fk_transmissao_tipo_contagem_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_contagem"/>
+
+    </changeSet>
+</databaseChangeLog>

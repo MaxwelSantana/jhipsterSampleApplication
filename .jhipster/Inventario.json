@@ -1,0 +1,57 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "funcionarioLider",
+            "otherEntityName": "funcionario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "inventario"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "inventario"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numeroLoja",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataInventario",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "ordemServico",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gerenteLoja",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "liderInventario",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qtdPessoas",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nomeLoja",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430164134",
+    "entityTableName": "inventario",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "inventario",
+            "otherEntityName": "inventario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transmissao"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "funcionario",
+            "otherEntityName": "funcionario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transmissao"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "coletor",
+            "otherEntityName": "coletor",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transmissao"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoContagem",
+            "otherEntityName": "tipoContagem",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transmissao"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "timeStamp",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "versaoColetor",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430164135",
+    "entityTableName": "transmissao",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}
