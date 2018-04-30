@@ -1,0 +1,54 @@
+
+<div *ngIf="transmissao">
+    <h2><span>Transmissao</span> {{transmissao.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Time Stamp</span></dt>
+        <dd>
+            <span>{{transmissao.timeStamp | date:'medium'}}</span>
+        </dd>
+        <dt><span>Versao Coletor</span></dt>
+        <dd>
+            <span>{{transmissao.versaoColetor}}</span>
+        </dd>
+        <dt><span>Inventario</span></dt>
+        <dd>
+            <div *ngIf="transmissao.inventario">
+                <a [routerLink]="['/inventario', transmissao.inventario?.id]">{{transmissao.inventario?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Funcionario</span></dt>
+        <dd>
+            <div *ngIf="transmissao.funcionario">
+                <a [routerLink]="['/funcionario', transmissao.funcionario?.id]">{{transmissao.funcionario?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Coletor</span></dt>
+        <dd>
+            <div *ngIf="transmissao.coletor">
+                <a [routerLink]="['/coletor', transmissao.coletor?.id]">{{transmissao.coletor?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Tipo Contagem</span></dt>
+        <dd>
+            <div *ngIf="transmissao.tipoContagem">
+                <a [routerLink]="['/tipo-contagem', transmissao.tipoContagem?.id]">{{transmissao.tipoContagem?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'transmissao/'+ transmissao.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -5,6 +5,17 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164129_added_entity_Cliente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164130_added_entity_Funcionario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164131_added_entity_Coletor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164132_added_entity_TipoContagem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164133_added_entity_StatusContagem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164134_added_entity_Inventario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164135_added_entity_Transmissao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164136_added_entity_Secao.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180430164134_added_entity_constraints_Inventario.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164135_added_entity_constraints_Transmissao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180430164136_added_entity_constraints_Secao.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

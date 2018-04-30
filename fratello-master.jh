@@ -24,7 +24,7 @@ entity StatusContagem {
 
 entity Inventario {
     NumeroLoja String
-    DataInventario Instant
+    DataInventario LocalDate
     OrdemServico String
     GerenteLoja String
     LiderInventario String
@@ -33,7 +33,7 @@ entity Inventario {
 }
 
 entity Transmissao {
-	TimeStamp TimeStamp
+	TimeStamp Instant
     VersaoColetor String
 }
 

@@ -1,0 +1,62 @@
+
+<div *ngIf="inventario">
+    <h2><span>Inventario</span> {{inventario.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Numero Loja</span></dt>
+        <dd>
+            <span>{{inventario.numeroLoja}}</span>
+        </dd>
+        <dt><span>Data Inventario</span></dt>
+        <dd>
+            <span>{{inventario.dataInventario | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Ordem Servico</span></dt>
+        <dd>
+            <span>{{inventario.ordemServico}}</span>
+        </dd>
+        <dt><span>Gerente Loja</span></dt>
+        <dd>
+            <span>{{inventario.gerenteLoja}}</span>
+        </dd>
+        <dt><span>Lider Inventario</span></dt>
+        <dd>
+            <span>{{inventario.liderInventario}}</span>
+        </dd>
+        <dt><span>Qtd Pessoas</span></dt>
+        <dd>
+            <span>{{inventario.qtdPessoas}}</span>
+        </dd>
+        <dt><span>Nome Loja</span></dt>
+        <dd>
+            <span>{{inventario.nomeLoja}}</span>
+        </dd>
+        <dt><span>Funcionario Lider</span></dt>
+        <dd>
+            <div *ngIf="inventario.funcionarioLider">
+                <a [routerLink]="['/funcionario', inventario.funcionarioLider?.id]">{{inventario.funcionarioLider?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Cliente</span></dt>
+        <dd>
+            <div *ngIf="inventario.cliente">
+                <a [routerLink]="['/cliente', inventario.cliente?.id]">{{inventario.cliente?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'inventario/'+ inventario.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

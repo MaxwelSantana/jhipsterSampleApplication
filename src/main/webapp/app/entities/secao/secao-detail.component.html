@@ -1,0 +1,38 @@
+
+<div *ngIf="secao">
+    <h2><span>Secao</span> {{secao.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Codigo</span></dt>
+        <dd>
+            <span>{{secao.codigo}}</span>
+        </dd>
+        <dt><span>Transmissao</span></dt>
+        <dd>
+            <div *ngIf="secao.transmissao">
+                <a [routerLink]="['/transmissao', secao.transmissao?.id]">{{secao.transmissao?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Status Contagem</span></dt>
+        <dd>
+            <div *ngIf="secao.statusContagem">
+                <a [routerLink]="['/status-contagem', secao.statusContagem?.id]">{{secao.statusContagem?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'secao/'+ secao.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

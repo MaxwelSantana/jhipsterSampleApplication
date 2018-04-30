@@ -1,0 +1,82 @@
+<div>
+    <h2>
+        <span>Inventarios</span>
+        <button class="btn btn-primary float-right jh-create-entity create-inventario" [routerLink]="['/', { outlets: { popup: ['inventario-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Inventario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="inventarios">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Numero Loja</span></th>
+            <th><span>Data Inventario</span></th>
+            <th><span>Ordem Servico</span></th>
+            <th><span>Gerente Loja</span></th>
+            <th><span>Lider Inventario</span></th>
+            <th><span>Qtd Pessoas</span></th>
+            <th><span>Nome Loja</span></th>
+            <th><span>Funcionario Lider</span></th>
+            <th><span>Cliente</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let inventario of inventarios ;trackBy: trackId">
+                <td><a [routerLink]="['../inventario', inventario.id ]">{{inventario.id}}</a></td>
+                <td>{{inventario.numeroLoja}}</td>
+                <td>{{inventario.dataInventario | date:'mediumDate'}}</td>
+                <td>{{inventario.ordemServico}}</td>
+                <td>{{inventario.gerenteLoja}}</td>
+                <td>{{inventario.liderInventario}}</td>
+                <td>{{inventario.qtdPessoas}}</td>
+                <td>{{inventario.nomeLoja}}</td>
+                <td>
+                    <div *ngIf="inventario.funcionarioLider">
+                        <a [routerLink]="['../funcionario', inventario.funcionarioLider?.id ]" >{{inventario.funcionarioLider?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="inventario.cliente">
+                        <a [routerLink]="['../cliente', inventario.cliente?.id ]" >{{inventario.cliente?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../inventario', inventario.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'inventario/'+ inventario.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'inventario/'+ inventario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div>
+    <h2>
+        <span>Transmissaos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-transmissao" [routerLink]="['/', { outlets: { popup: ['transmissao-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Transmissao
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="transmissaos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Time Stamp</span></th>
+            <th><span>Versao Coletor</span></th>
+            <th><span>Inventario</span></th>
+            <th><span>Funcionario</span></th>
+            <th><span>Coletor</span></th>
+            <th><span>Tipo Contagem</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let transmissao of transmissaos ;trackBy: trackId">
+                <td><a [routerLink]="['../transmissao', transmissao.id ]">{{transmissao.id}}</a></td>
+                <td>{{transmissao.timeStamp | date:'medium'}}</td>
+                <td>{{transmissao.versaoColetor}}</td>
+                <td>
+                    <div *ngIf="transmissao.inventario">
+                        <a [routerLink]="['../inventario', transmissao.inventario?.id ]" >{{transmissao.inventario?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transmissao.funcionario">
+                        <a [routerLink]="['../funcionario', transmissao.funcionario?.id ]" >{{transmissao.funcionario?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transmissao.coletor">
+                        <a [routerLink]="['../coletor', transmissao.coletor?.id ]" >{{transmissao.coletor?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transmissao.tipoContagem">
+                        <a [routerLink]="['../tipo-contagem', transmissao.tipoContagem?.id ]" >{{transmissao.tipoContagem?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../transmissao', transmissao.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'transmissao/'+ transmissao.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'transmissao/'+ transmissao.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
