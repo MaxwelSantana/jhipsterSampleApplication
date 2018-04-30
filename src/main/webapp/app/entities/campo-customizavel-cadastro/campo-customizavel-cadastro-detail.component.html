@@ -1,0 +1,120 @@
+
+<div *ngIf="campoCustomizavelCadastro">
+    <h2><span>Campo Customizavel Cadastro</span> {{campoCustomizavelCadastro.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>String Customizado 1</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado1}}</span>
+        </dd>
+        <dt><span>String Customizado 2</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado2}}</span>
+        </dd>
+        <dt><span>String Customizado 3</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado3}}</span>
+        </dd>
+        <dt><span>String Customizado 4</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado4}}</span>
+        </dd>
+        <dt><span>String Customizado 5</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado5}}</span>
+        </dd>
+        <dt><span>String Customizado 6</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado6}}</span>
+        </dd>
+        <dt><span>String Customizado 7</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado7}}</span>
+        </dd>
+        <dt><span>String Customizado 8</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado8}}</span>
+        </dd>
+        <dt><span>String Customizado 9</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado9}}</span>
+        </dd>
+        <dt><span>String Customizado 10</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.stringCustomizado10}}</span>
+        </dd>
+        <dt><span>Int Customizado 1</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado1}}</span>
+        </dd>
+        <dt><span>Int Customizado 2</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado2}}</span>
+        </dd>
+        <dt><span>Int Customizado 3</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado3}}</span>
+        </dd>
+        <dt><span>Int Customizado 4</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado4}}</span>
+        </dd>
+        <dt><span>Int Customizado 5</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado5}}</span>
+        </dd>
+        <dt><span>Int Customizado 6</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado6}}</span>
+        </dd>
+        <dt><span>Int Customizado 7</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado7}}</span>
+        </dd>
+        <dt><span>Int Customizado 8</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado8}}</span>
+        </dd>
+        <dt><span>Int Customizado 9</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado9}}</span>
+        </dd>
+        <dt><span>Int Customizado 10</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.intCustomizado10}}</span>
+        </dd>
+        <dt><span>Bin Customizado 1</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.binCustomizado1}}</span>
+        </dd>
+        <dt><span>Bin Customizado 2</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.binCustomizado2}}</span>
+        </dd>
+        <dt><span>Bin Customizado 3</span></dt>
+        <dd>
+            <span>{{campoCustomizavelCadastro.binCustomizado3}}</span>
+        </dd>
+        <dt><span>Cliente</span></dt>
+        <dd>
+            <div *ngIf="campoCustomizavelCadastro.cliente">
+                <a [routerLink]="['/cliente', campoCustomizavelCadastro.cliente?.id]">{{campoCustomizavelCadastro.cliente?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'campo-customizavel-cadastro/'+ campoCustomizavelCadastro.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

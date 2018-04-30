@@ -1,0 +1,44 @@
+
+<div *ngIf="logAlteracaoContagem">
+    <h2><span>Log Alteracao Contagem</span> {{logAlteracaoContagem.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Campo</span></dt>
+        <dd>
+            <span>{{logAlteracaoContagem.campo}}</span>
+        </dd>
+        <dt><span>Valor Antigo</span></dt>
+        <dd>
+            <span>{{logAlteracaoContagem.valorAntigo}}</span>
+        </dd>
+        <dt><span>Valor Novo</span></dt>
+        <dd>
+            <span>{{logAlteracaoContagem.valorNovo}}</span>
+        </dd>
+        <dt><span>Time Stamp</span></dt>
+        <dd>
+            <span>{{logAlteracaoContagem.timeStamp | date:'medium'}}</span>
+        </dd>
+        <dt><span>Contagem</span></dt>
+        <dd>
+            <div *ngIf="logAlteracaoContagem.contagem">
+                <a [routerLink]="['/contagem', logAlteracaoContagem.contagem?.id]">{{logAlteracaoContagem.contagem?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'log-alteracao-contagem/'+ logAlteracaoContagem.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

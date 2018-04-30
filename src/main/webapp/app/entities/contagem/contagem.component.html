@@ -1,0 +1,132 @@
+<div>
+    <h2>
+        <span>Contagems</span>
+        <button class="btn btn-primary float-right jh-create-entity create-contagem" [routerLink]="['/', { outlets: { popup: ['contagem-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Contagem
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="contagems">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Codigo Secao</span></th>
+            <th><span>Codigo Interno</span></th>
+            <th><span>Ean</span></th>
+            <th><span>Quantidade</span></th>
+            <th><span>Quantidade Original</span></th>
+            <th><span>Time Stamp</span></th>
+            <th><span>String Customizado 1</span></th>
+            <th><span>String Customizado 2</span></th>
+            <th><span>String Customizado 3</span></th>
+            <th><span>String Customizado 4</span></th>
+            <th><span>String Customizado 5</span></th>
+            <th><span>String Customizado 6</span></th>
+            <th><span>String Customizado 7</span></th>
+            <th><span>String Customizado 8</span></th>
+            <th><span>String Customizado 9</span></th>
+            <th><span>String Customizado 10</span></th>
+            <th><span>Int Customizado 1</span></th>
+            <th><span>Int Customizado 2</span></th>
+            <th><span>Int Customizado 3</span></th>
+            <th><span>Int Customizado 4</span></th>
+            <th><span>Int Customizado 5</span></th>
+            <th><span>Int Customizado 6</span></th>
+            <th><span>Int Customizado 7</span></th>
+            <th><span>Int Customizado 8</span></th>
+            <th><span>Int Customizado 9</span></th>
+            <th><span>Int Customizado 10</span></th>
+            <th><span>Bin Customizado 1</span></th>
+            <th><span>Bin Customizado 2</span></th>
+            <th><span>Bin Customizado 3</span></th>
+            <th><span>Secao</span></th>
+            <th><span>Status Contagem</span></th>
+            <th><span>Motivo Alteracao</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let contagem of contagems ;trackBy: trackId">
+                <td><a [routerLink]="['../contagem', contagem.id ]">{{contagem.id}}</a></td>
+                <td>{{contagem.codigoSecao}}</td>
+                <td>{{contagem.codigoInterno}}</td>
+                <td>{{contagem.ean}}</td>
+                <td>{{contagem.quantidade}}</td>
+                <td>{{contagem.quantidadeOriginal}}</td>
+                <td>{{contagem.timeStamp | date:'medium'}}</td>
+                <td>{{contagem.stringCustomizado1}}</td>
+                <td>{{contagem.stringCustomizado2}}</td>
+                <td>{{contagem.stringCustomizado3}}</td>
+                <td>{{contagem.stringCustomizado4}}</td>
+                <td>{{contagem.stringCustomizado5}}</td>
+                <td>{{contagem.stringCustomizado6}}</td>
+                <td>{{contagem.stringCustomizado7}}</td>
+                <td>{{contagem.stringCustomizado8}}</td>
+                <td>{{contagem.stringCustomizado9}}</td>
+                <td>{{contagem.stringCustomizado10}}</td>
+                <td>{{contagem.intCustomizado1}}</td>
+                <td>{{contagem.intCustomizado2}}</td>
+                <td>{{contagem.intCustomizado3}}</td>
+                <td>{{contagem.intCustomizado4}}</td>
+                <td>{{contagem.intCustomizado5}}</td>
+                <td>{{contagem.intCustomizado6}}</td>
+                <td>{{contagem.intCustomizado7}}</td>
+                <td>{{contagem.intCustomizado8}}</td>
+                <td>{{contagem.intCustomizado9}}</td>
+                <td>{{contagem.intCustomizado10}}</td>
+                <td>{{contagem.binCustomizado1}}</td>
+                <td>{{contagem.binCustomizado2}}</td>
+                <td>{{contagem.binCustomizado3}}</td>
+                <td>
+                    <div *ngIf="contagem.secao">
+                        <a [routerLink]="['../secao', contagem.secao?.id ]" >{{contagem.secao?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="contagem.statusContagem">
+                        <a [routerLink]="['../status-contagem', contagem.statusContagem?.id ]" >{{contagem.statusContagem?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="contagem.motivoAlteracao">
+                        <a [routerLink]="['../motivo-alteracao', contagem.motivoAlteracao?.id ]" >{{contagem.motivoAlteracao?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../contagem', contagem.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'contagem/'+ contagem.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'contagem/'+ contagem.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

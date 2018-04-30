@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span>Log Status Inventarios</span>
+        <button class="btn btn-primary float-right jh-create-entity create-log-status-inventario" [routerLink]="['/', { outlets: { popup: ['log-status-inventario-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Log Status Inventario
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="logStatusInventarios">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Time Stamp</span></th>
+            <th><span>Status Inventario</span></th>
+            <th><span>Inventario</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let logStatusInventario of logStatusInventarios ;trackBy: trackId">
+                <td><a [routerLink]="['../log-status-inventario', logStatusInventario.id ]">{{logStatusInventario.id}}</a></td>
+                <td>{{logStatusInventario.timeStamp | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="logStatusInventario.statusInventario">
+                        <a [routerLink]="['../status-inventario', logStatusInventario.statusInventario?.id ]" >{{logStatusInventario.statusInventario?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="logStatusInventario.inventario">
+                        <a [routerLink]="['../inventario', logStatusInventario.inventario?.id ]" >{{logStatusInventario.inventario?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../log-status-inventario', logStatusInventario.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'log-status-inventario/'+ logStatusInventario.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'log-status-inventario/'+ logStatusInventario.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

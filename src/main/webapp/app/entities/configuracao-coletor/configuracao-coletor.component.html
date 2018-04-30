@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span>Configuracao Coletors</span>
+        <button class="btn btn-primary float-right jh-create-entity create-configuracao-coletor" [routerLink]="['/', { outlets: { popup: ['configuracao-coletor-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Configuracao Coletor
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="configuracaoColetors">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Cliente</span></th>
+            <th><span>Codigo Customizado</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let configuracaoColetor of configuracaoColetors ;trackBy: trackId">
+                <td><a [routerLink]="['../configuracao-coletor', configuracaoColetor.id ]">{{configuracaoColetor.id}}</a></td>
+                <td>
+                    <div *ngIf="configuracaoColetor.cliente">
+                        <a [routerLink]="['../cliente', configuracaoColetor.cliente?.id ]" >{{configuracaoColetor.cliente?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="configuracaoColetor.codigoCustomizado">
+                        <a [routerLink]="['../codigo-customizavel', configuracaoColetor.codigoCustomizado?.id ]" >{{configuracaoColetor.codigoCustomizado?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../configuracao-coletor', configuracaoColetor.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'configuracao-coletor/'+ configuracaoColetor.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'configuracao-coletor/'+ configuracaoColetor.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

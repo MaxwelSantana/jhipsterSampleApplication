@@ -1,0 +1,152 @@
+
+<div *ngIf="cadastro">
+    <h2><span>Cadastro</span> {{cadastro.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Codigo Interno</span></dt>
+        <dd>
+            <span>{{cadastro.codigoInterno}}</span>
+        </dd>
+        <dt><span>Ean</span></dt>
+        <dd>
+            <span>{{cadastro.ean}}</span>
+        </dd>
+        <dt><span>Descricao</span></dt>
+        <dd>
+            <span>{{cadastro.descricao}}</span>
+        </dd>
+        <dt><span>Quantidade</span></dt>
+        <dd>
+            <span>{{cadastro.quantidade}}</span>
+        </dd>
+        <dt><span>Preco</span></dt>
+        <dd>
+            <span>{{cadastro.preco}}</span>
+        </dd>
+        <dt><span>Preco Custo</span></dt>
+        <dd>
+            <span>{{cadastro.precoCusto}}</span>
+        </dd>
+        <dt><span>Setor</span></dt>
+        <dd>
+            <span>{{cadastro.setor}}</span>
+        </dd>
+        <dt><span>Departamento</span></dt>
+        <dd>
+            <span>{{cadastro.departamento}}</span>
+        </dd>
+        <dt><span>String Customizado 1</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado1}}</span>
+        </dd>
+        <dt><span>String Customizado 2</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado2}}</span>
+        </dd>
+        <dt><span>String Customizado 3</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado3}}</span>
+        </dd>
+        <dt><span>String Customizado 4</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado4}}</span>
+        </dd>
+        <dt><span>String Customizado 5</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado5}}</span>
+        </dd>
+        <dt><span>String Customizado 6</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado6}}</span>
+        </dd>
+        <dt><span>String Customizado 7</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado7}}</span>
+        </dd>
+        <dt><span>String Customizado 8</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado8}}</span>
+        </dd>
+        <dt><span>String Customizado 9</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado9}}</span>
+        </dd>
+        <dt><span>String Customizado 10</span></dt>
+        <dd>
+            <span>{{cadastro.stringCustomizado10}}</span>
+        </dd>
+        <dt><span>Int Customizado 1</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado1}}</span>
+        </dd>
+        <dt><span>Int Customizado 2</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado2}}</span>
+        </dd>
+        <dt><span>Int Customizado 3</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado3}}</span>
+        </dd>
+        <dt><span>Int Customizado 4</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado4}}</span>
+        </dd>
+        <dt><span>Int Customizado 5</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado5}}</span>
+        </dd>
+        <dt><span>Int Customizado 6</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado6}}</span>
+        </dd>
+        <dt><span>Int Customizado 7</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado7}}</span>
+        </dd>
+        <dt><span>Int Customizado 8</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado8}}</span>
+        </dd>
+        <dt><span>Int Customizado 9</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado9}}</span>
+        </dd>
+        <dt><span>Int Customizado 10</span></dt>
+        <dd>
+            <span>{{cadastro.intCustomizado10}}</span>
+        </dd>
+        <dt><span>Bin Customizado 1</span></dt>
+        <dd>
+            <span>{{cadastro.binCustomizado1}}</span>
+        </dd>
+        <dt><span>Bin Customizado 2</span></dt>
+        <dd>
+            <span>{{cadastro.binCustomizado2}}</span>
+        </dd>
+        <dt><span>Bin Customizado 3</span></dt>
+        <dd>
+            <span>{{cadastro.binCustomizado3}}</span>
+        </dd>
+        <dt><span>Inventario</span></dt>
+        <dd>
+            <div *ngIf="cadastro.inventario">
+                <a [routerLink]="['/inventario', cadastro.inventario?.id]">{{cadastro.inventario?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'cadastro/'+ cadastro.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Contagem.
+    -->
+    <changeSet id="20180430211158-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="secao_id"
+                                 baseTableName="contagem"
+                                 constraintName="fk_contagem_secao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="secao"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_contagem_id"
+                                 baseTableName="contagem"
+                                 constraintName="fk_contagem_status_contagem_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status_contagem"/>
+
+        <addForeignKeyConstraint baseColumnNames="motivo_alteracao_id"
+                                 baseTableName="contagem"
+                                 constraintName="fk_contagem_motivo_alteracao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="motivo_alteracao"/>
+
+    </changeSet>
+</databaseChangeLog>

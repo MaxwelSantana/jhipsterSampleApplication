@@ -1,0 +1,124 @@
+<div>
+    <h2>
+        <span>Cadastros</span>
+        <button class="btn btn-primary float-right jh-create-entity create-cadastro" [routerLink]="['/', { outlets: { popup: ['cadastro-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Cadastro
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="cadastros">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Codigo Interno</span></th>
+            <th><span>Ean</span></th>
+            <th><span>Descricao</span></th>
+            <th><span>Quantidade</span></th>
+            <th><span>Preco</span></th>
+            <th><span>Preco Custo</span></th>
+            <th><span>Setor</span></th>
+            <th><span>Departamento</span></th>
+            <th><span>String Customizado 1</span></th>
+            <th><span>String Customizado 2</span></th>
+            <th><span>String Customizado 3</span></th>
+            <th><span>String Customizado 4</span></th>
+            <th><span>String Customizado 5</span></th>
+            <th><span>String Customizado 6</span></th>
+            <th><span>String Customizado 7</span></th>
+            <th><span>String Customizado 8</span></th>
+            <th><span>String Customizado 9</span></th>
+            <th><span>String Customizado 10</span></th>
+            <th><span>Int Customizado 1</span></th>
+            <th><span>Int Customizado 2</span></th>
+            <th><span>Int Customizado 3</span></th>
+            <th><span>Int Customizado 4</span></th>
+            <th><span>Int Customizado 5</span></th>
+            <th><span>Int Customizado 6</span></th>
+            <th><span>Int Customizado 7</span></th>
+            <th><span>Int Customizado 8</span></th>
+            <th><span>Int Customizado 9</span></th>
+            <th><span>Int Customizado 10</span></th>
+            <th><span>Bin Customizado 1</span></th>
+            <th><span>Bin Customizado 2</span></th>
+            <th><span>Bin Customizado 3</span></th>
+            <th><span>Inventario</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cadastro of cadastros ;trackBy: trackId">
+                <td><a [routerLink]="['../cadastro', cadastro.id ]">{{cadastro.id}}</a></td>
+                <td>{{cadastro.codigoInterno}}</td>
+                <td>{{cadastro.ean}}</td>
+                <td>{{cadastro.descricao}}</td>
+                <td>{{cadastro.quantidade}}</td>
+                <td>{{cadastro.preco}}</td>
+                <td>{{cadastro.precoCusto}}</td>
+                <td>{{cadastro.setor}}</td>
+                <td>{{cadastro.departamento}}</td>
+                <td>{{cadastro.stringCustomizado1}}</td>
+                <td>{{cadastro.stringCustomizado2}}</td>
+                <td>{{cadastro.stringCustomizado3}}</td>
+                <td>{{cadastro.stringCustomizado4}}</td>
+                <td>{{cadastro.stringCustomizado5}}</td>
+                <td>{{cadastro.stringCustomizado6}}</td>
+                <td>{{cadastro.stringCustomizado7}}</td>
+                <td>{{cadastro.stringCustomizado8}}</td>
+                <td>{{cadastro.stringCustomizado9}}</td>
+                <td>{{cadastro.stringCustomizado10}}</td>
+                <td>{{cadastro.intCustomizado1}}</td>
+                <td>{{cadastro.intCustomizado2}}</td>
+                <td>{{cadastro.intCustomizado3}}</td>
+                <td>{{cadastro.intCustomizado4}}</td>
+                <td>{{cadastro.intCustomizado5}}</td>
+                <td>{{cadastro.intCustomizado6}}</td>
+                <td>{{cadastro.intCustomizado7}}</td>
+                <td>{{cadastro.intCustomizado8}}</td>
+                <td>{{cadastro.intCustomizado9}}</td>
+                <td>{{cadastro.intCustomizado10}}</td>
+                <td>{{cadastro.binCustomizado1}}</td>
+                <td>{{cadastro.binCustomizado2}}</td>
+                <td>{{cadastro.binCustomizado3}}</td>
+                <td>
+                    <div *ngIf="cadastro.inventario">
+                        <a [routerLink]="['../inventario', cadastro.inventario?.id ]" >{{cadastro.inventario?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../cadastro', cadastro.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cadastro/'+ cadastro.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'cadastro/'+ cadastro.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

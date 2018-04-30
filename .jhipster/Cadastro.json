@@ -1,0 +1,145 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "inventario",
+            "otherEntityName": "inventario",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cadastro"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codigoInterno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ean",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantidade",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "preco",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "precoCusto",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "setor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "departamento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado6",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado7",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado8",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado9",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado10",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado1",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado2",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado3",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado4",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado5",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado6",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado7",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado8",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado9",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "intCustomizado10",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "binCustomizado1",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "binCustomizado2",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "binCustomizado3",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180430211200",
+    "entityTableName": "cadastro",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

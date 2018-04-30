@@ -1,0 +1,177 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "configuracao"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tipoConfiguracao",
+            "otherEntityName": "tipoConfiguracao",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "configuracao"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "codigoCustomizado",
+            "otherEntityName": "codigoCustomizavel",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "configuracao"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codigoInterno",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ean",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantidade",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "preco",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "setor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "departamento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "precoCusto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "posicional",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "delimitador",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "desconsiderarLinhaInicial",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "desconsiderarLinhaFinal",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "stringCustomizado1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado6",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado7",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado8",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado9",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stringCustomizado10",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado5",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado6",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado7",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado8",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado9",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "intCustomizado10",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "binCustomizado1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "binCustomizado2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "binCustomizado3",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180430211209",
+    "entityTableName": "configuracao",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

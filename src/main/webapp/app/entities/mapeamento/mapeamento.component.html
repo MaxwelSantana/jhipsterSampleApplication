@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span>Mapeamentos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-mapeamento" [routerLink]="['/', { outlets: { popup: ['mapeamento-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Mapeamento
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="mapeamentos">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Secao Inicial</span></th>
+            <th><span>Secao Final</span></th>
+            <th><span>Descricao</span></th>
+            <th><span>Deposito</span></th>
+            <th><span>Loja</span></th>
+            <th><span>Inicial Int</span></th>
+            <th><span>Final Int</span></th>
+            <th><span>Inventario</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mapeamento of mapeamentos ;trackBy: trackId">
+                <td><a [routerLink]="['../mapeamento', mapeamento.id ]">{{mapeamento.id}}</a></td>
+                <td>{{mapeamento.secaoInicial}}</td>
+                <td>{{mapeamento.secaoFinal}}</td>
+                <td>{{mapeamento.descricao}}</td>
+                <td>{{mapeamento.deposito}}</td>
+                <td>{{mapeamento.loja}}</td>
+                <td>{{mapeamento.inicialInt}}</td>
+                <td>{{mapeamento.finalInt}}</td>
+                <td>
+                    <div *ngIf="mapeamento.inventario">
+                        <a [routerLink]="['../inventario', mapeamento.inventario?.id ]" >{{mapeamento.inventario?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../mapeamento', mapeamento.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mapeamento/'+ mapeamento.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mapeamento/'+ mapeamento.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

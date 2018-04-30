@@ -1,0 +1,56 @@
+
+<div *ngIf="mapeamento">
+    <h2><span>Mapeamento</span> {{mapeamento.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Secao Inicial</span></dt>
+        <dd>
+            <span>{{mapeamento.secaoInicial}}</span>
+        </dd>
+        <dt><span>Secao Final</span></dt>
+        <dd>
+            <span>{{mapeamento.secaoFinal}}</span>
+        </dd>
+        <dt><span>Descricao</span></dt>
+        <dd>
+            <span>{{mapeamento.descricao}}</span>
+        </dd>
+        <dt><span>Deposito</span></dt>
+        <dd>
+            <span>{{mapeamento.deposito}}</span>
+        </dd>
+        <dt><span>Loja</span></dt>
+        <dd>
+            <span>{{mapeamento.loja}}</span>
+        </dd>
+        <dt><span>Inicial Int</span></dt>
+        <dd>
+            <span>{{mapeamento.inicialInt}}</span>
+        </dd>
+        <dt><span>Final Int</span></dt>
+        <dd>
+            <span>{{mapeamento.finalInt}}</span>
+        </dd>
+        <dt><span>Inventario</span></dt>
+        <dd>
+            <div *ngIf="mapeamento.inventario">
+                <a [routerLink]="['/inventario', mapeamento.inventario?.id]">{{mapeamento.inventario?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'mapeamento/'+ mapeamento.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

@@ -50,6 +50,19 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.Inventario.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Transmissao.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Secao.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.MotivoAlteracao.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Contagem.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.LogAlteracaoContagem.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Cadastro.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Mapeamento.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.StatusInventario.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.LogStatusInventario.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.CampoCustomizavelColeta.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.CampoCustomizavelCadastro.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.TipoConfiguracao.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.CodigoCustomizavel.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.ConfiguracaoColetor.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Configuracao.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
