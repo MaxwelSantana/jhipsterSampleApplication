@@ -38,9 +38,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = JhipsterSampleApplicationApp.class)
 public class FuncionarioResourceIntTest {
 
-    private static final Integer DEFAULT_ID_FUNCIONARIO = 1;
-    private static final Integer UPDATED_ID_FUNCIONARIO = 2;
-
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
 
@@ -85,7 +82,6 @@ public class FuncionarioResourceIntTest {
      */
     public static Funcionario createEntity(EntityManager em) {
         Funcionario funcionario = new Funcionario()
-            .idFuncionario(DEFAULT_ID_FUNCIONARIO)
             .nome(DEFAULT_NOME)
             .cpf(DEFAULT_CPF);
         return funcionario;
@@ -111,7 +107,6 @@ public class FuncionarioResourceIntTest {
         List<Funcionario> funcionarioList = funcionarioRepository.findAll();
         assertThat(funcionarioList).hasSize(databaseSizeBeforeCreate + 1);
         Funcionario testFuncionario = funcionarioList.get(funcionarioList.size() - 1);
-        assertThat(testFuncionario.getIdFuncionario()).isEqualTo(DEFAULT_ID_FUNCIONARIO);
         assertThat(testFuncionario.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testFuncionario.getCpf()).isEqualTo(DEFAULT_CPF);
     }
@@ -146,7 +141,6 @@ public class FuncionarioResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(funcionario.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idFuncionario").value(hasItem(DEFAULT_ID_FUNCIONARIO)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME.toString())))
             .andExpect(jsonPath("$.[*].cpf").value(hasItem(DEFAULT_CPF.toString())));
     }
@@ -162,7 +156,6 @@ public class FuncionarioResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(funcionario.getId().intValue()))
-            .andExpect(jsonPath("$.idFuncionario").value(DEFAULT_ID_FUNCIONARIO))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME.toString()))
             .andExpect(jsonPath("$.cpf").value(DEFAULT_CPF.toString()));
     }
@@ -187,7 +180,6 @@ public class FuncionarioResourceIntTest {
         // Disconnect from session so that the updates on updatedFuncionario are not directly saved in db
         em.detach(updatedFuncionario);
         updatedFuncionario
-            .idFuncionario(UPDATED_ID_FUNCIONARIO)
             .nome(UPDATED_NOME)
             .cpf(UPDATED_CPF);
 
@@ -200,7 +192,6 @@ public class FuncionarioResourceIntTest {
         List<Funcionario> funcionarioList = funcionarioRepository.findAll();
         assertThat(funcionarioList).hasSize(databaseSizeBeforeUpdate);
         Funcionario testFuncionario = funcionarioList.get(funcionarioList.size() - 1);
-        assertThat(testFuncionario.getIdFuncionario()).isEqualTo(UPDATED_ID_FUNCIONARIO);
         assertThat(testFuncionario.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testFuncionario.getCpf()).isEqualTo(UPDATED_CPF);
     }

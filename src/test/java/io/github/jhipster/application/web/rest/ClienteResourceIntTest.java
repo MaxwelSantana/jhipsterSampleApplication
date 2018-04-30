@@ -38,9 +38,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = JhipsterSampleApplicationApp.class)
 public class ClienteResourceIntTest {
 
-    private static final Integer DEFAULT_ID_CLIENTE = 1;
-    private static final Integer UPDATED_ID_CLIENTE = 2;
-
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
 
@@ -85,7 +82,6 @@ public class ClienteResourceIntTest {
      */
     public static Cliente createEntity(EntityManager em) {
         Cliente cliente = new Cliente()
-            .idCliente(DEFAULT_ID_CLIENTE)
             .nome(DEFAULT_NOME)
             .sigla(DEFAULT_SIGLA);
         return cliente;
@@ -111,7 +107,6 @@ public class ClienteResourceIntTest {
         List<Cliente> clienteList = clienteRepository.findAll();
         assertThat(clienteList).hasSize(databaseSizeBeforeCreate + 1);
         Cliente testCliente = clienteList.get(clienteList.size() - 1);
-        assertThat(testCliente.getIdCliente()).isEqualTo(DEFAULT_ID_CLIENTE);
         assertThat(testCliente.getNome()).isEqualTo(DEFAULT_NOME);
         assertThat(testCliente.getSigla()).isEqualTo(DEFAULT_SIGLA);
     }
@@ -146,7 +141,6 @@ public class ClienteResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(cliente.getId().intValue())))
-            .andExpect(jsonPath("$.[*].idCliente").value(hasItem(DEFAULT_ID_CLIENTE)))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME.toString())))
             .andExpect(jsonPath("$.[*].sigla").value(hasItem(DEFAULT_SIGLA.toString())));
     }
@@ -162,7 +156,6 @@ public class ClienteResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(cliente.getId().intValue()))
-            .andExpect(jsonPath("$.idCliente").value(DEFAULT_ID_CLIENTE))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME.toString()))
             .andExpect(jsonPath("$.sigla").value(DEFAULT_SIGLA.toString()));
     }
@@ -187,7 +180,6 @@ public class ClienteResourceIntTest {
         // Disconnect from session so that the updates on updatedCliente are not directly saved in db
         em.detach(updatedCliente);
         updatedCliente
-            .idCliente(UPDATED_ID_CLIENTE)
             .nome(UPDATED_NOME)
             .sigla(UPDATED_SIGLA);
 
@@ -200,7 +192,6 @@ public class ClienteResourceIntTest {
         List<Cliente> clienteList = clienteRepository.findAll();
         assertThat(clienteList).hasSize(databaseSizeBeforeUpdate);
         Cliente testCliente = clienteList.get(clienteList.size() - 1);
-        assertThat(testCliente.getIdCliente()).isEqualTo(UPDATED_ID_CLIENTE);
         assertThat(testCliente.getNome()).isEqualTo(UPDATED_NOME);
         assertThat(testCliente.getSigla()).isEqualTo(UPDATED_SIGLA);
     }
