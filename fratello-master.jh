@@ -1,0 +1,59 @@
+entity Cliente {
+	IdCliente Int
+    Nome String
+    Sigla String
+}
+
+entity Funcionario {
+	IdFuncionario Int
+    Nome String
+    Cpf String
+}
+
+entity Coletor {
+	Descricao String
+}
+
+entity TipoContagem {
+	Descricao String
+}
+
+entity StatusContagem {
+	Descricao String
+}
+
+entity Inventario {
+    NumeroLoja String
+    DataInventario Date
+    OrdemServico String
+    GerenteLoja String
+    LiderInventario String
+    QtdPessoas Int
+    NomeLoja String
+}
+
+entity Transmissao {
+	TimeStamp DateTime
+    VersaoColetor String
+}
+
+entity Secao {
+	Codigo String
+}
+
+relationship OneToOne {
+	Inventario{funcionarioLider} to Funcionario
+    Inventario{cliente} to Cliente
+    
+    Transmissao{inventario} to Inventario
+    Transmissao{funcionario} to Funcionario
+    Transmissao{coletor} to Coletor
+    Transmissao{tipoContagem} to TipoContagem
+    
+    Secao{transmissao} to Transmissao
+    Secao{statusContagem} to StatusContagem
+}
+
+
+
+
