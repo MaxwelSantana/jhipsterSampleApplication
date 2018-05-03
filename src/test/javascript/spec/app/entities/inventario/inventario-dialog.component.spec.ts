@@ -9,8 +9,8 @@ import { JhipsterSampleApplicationTestModule } from '../../../test.module';
 import { InventarioDialogComponent } from '../../../../../../main/webapp/app/entities/inventario/inventario-dialog.component';
 import { InventarioService } from '../../../../../../main/webapp/app/entities/inventario/inventario.service';
 import { Inventario } from '../../../../../../main/webapp/app/entities/inventario/inventario.model';
-import { FuncionarioService } from '../../../../../../main/webapp/app/entities/funcionario';
 import { ClienteService } from '../../../../../../main/webapp/app/entities/cliente';
+import { FuncionarioService } from '../../../../../../main/webapp/app/entities/funcionario';
 
 describe('Component Tests', () => {
 
@@ -26,8 +26,8 @@ describe('Component Tests', () => {
                 imports: [JhipsterSampleApplicationTestModule],
                 declarations: [InventarioDialogComponent],
                 providers: [
-                    FuncionarioService,
                     ClienteService,
+                    FuncionarioService,
                     InventarioService
                 ]
             })

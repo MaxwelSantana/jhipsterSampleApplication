@@ -44,13 +44,12 @@ public class Inventario implements Serializable {
     @Column(name = "nome_loja")
     private String nomeLoja;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Funcionario funcionarioLider;
+    @ManyToOne
+    private Cliente cliente;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Cliente cliente;
+    private Funcionario funcionarioLider;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -152,19 +151,6 @@ public class Inventario implements Serializable {
         this.nomeLoja = nomeLoja;
     }
 
-    public Funcionario getFuncionarioLider() {
-        return funcionarioLider;
-    }
-
-    public Inventario funcionarioLider(Funcionario funcionario) {
-        this.funcionarioLider = funcionario;
-        return this;
-    }
-
-    public void setFuncionarioLider(Funcionario funcionario) {
-        this.funcionarioLider = funcionario;
-    }
-
     public Cliente getCliente() {
         return cliente;
     }
@@ -176,6 +162,19 @@ public class Inventario implements Serializable {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Funcionario getFuncionarioLider() {
+        return funcionarioLider;
+    }
+
+    public Inventario funcionarioLider(Funcionario funcionario) {
+        this.funcionarioLider = funcionario;
+        return this;
+    }
+
+    public void setFuncionarioLider(Funcionario funcionario) {
+        this.funcionarioLider = funcionario;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

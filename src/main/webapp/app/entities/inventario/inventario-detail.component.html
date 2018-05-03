@@ -32,16 +32,16 @@
         <dd>
             <span>{{inventario.nomeLoja}}</span>
         </dd>
-        <dt><span>Funcionario Lider</span></dt>
-        <dd>
-            <div *ngIf="inventario.funcionarioLider">
-                <a [routerLink]="['/funcionario', inventario.funcionarioLider?.id]">{{inventario.funcionarioLider?.id}}</a>
-            </div>
-        </dd>
         <dt><span>Cliente</span></dt>
         <dd>
             <div *ngIf="inventario.cliente">
                 <a [routerLink]="['/cliente', inventario.cliente?.id]">{{inventario.cliente?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Funcionario Lider</span></dt>
+        <dd>
+            <div *ngIf="inventario.funcionarioLider">
+                <a [routerLink]="['/funcionario', inventario.funcionarioLider?.id]">{{inventario.funcionarioLider?.id}}</a>
             </div>
         </dd>
     </dl>

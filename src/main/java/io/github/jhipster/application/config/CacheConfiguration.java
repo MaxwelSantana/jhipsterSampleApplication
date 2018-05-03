@@ -63,6 +63,7 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.CodigoCustomizavel.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.ConfiguracaoColetor.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Configuracao.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Cliente.class.getName() + ".inventarios", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

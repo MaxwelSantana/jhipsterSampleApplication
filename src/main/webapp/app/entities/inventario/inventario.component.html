@@ -24,8 +24,8 @@
             <th><span>Lider Inventario</span></th>
             <th><span>Qtd Pessoas</span></th>
             <th><span>Nome Loja</span></th>
-            <th><span>Funcionario Lider</span></th>
             <th><span>Cliente</span></th>
+            <th><span>Funcionario Lider</span></th>
             <th></th>
             </tr>
             </thead>
@@ -40,13 +40,13 @@
                 <td>{{inventario.qtdPessoas}}</td>
                 <td>{{inventario.nomeLoja}}</td>
                 <td>
-                    <div *ngIf="inventario.funcionarioLider">
-                        <a [routerLink]="['../funcionario', inventario.funcionarioLider?.id ]" >{{inventario.funcionarioLider?.id}}</a>
+                    <div *ngIf="inventario.cliente">
+                        <a [routerLink]="['../cliente', inventario.cliente?.id ]" >{{inventario.cliente?.id}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="inventario.cliente">
-                        <a [routerLink]="['../cliente', inventario.cliente?.id ]" >{{inventario.cliente?.id}}</a>
+                    <div *ngIf="inventario.funcionarioLider">
+                        <a [routerLink]="['../funcionario', inventario.funcionarioLider?.id ]" >{{inventario.funcionarioLider?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

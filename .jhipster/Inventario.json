@@ -2,17 +2,15 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "funcionarioLider",
-            "otherEntityName": "funcionario",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "inventario"
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "cliente",
-            "otherEntityName": "cliente",
+            "relationshipName": "funcionarioLider",
+            "otherEntityName": "funcionario",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "inventario"

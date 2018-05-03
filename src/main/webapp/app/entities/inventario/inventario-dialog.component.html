@@ -54,17 +54,17 @@
         </div>
 
         <div class="form-group">
+            <label class="form-control-label" for="field_cliente">Cliente</label>
+            <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="inventario.cliente" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="clienteOption.id === inventario.cliente?.id ? inventario.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label class="form-control-label" for="field_funcionarioLider">Funcionario Lider</label>
             <select class="form-control" id="field_funcionarioLider" name="funcionarioLider" [(ngModel)]="inventario.funcionarioLider">
                 <option [ngValue]="null"></option>
                 <option [ngValue]="funcionarioOption.id === inventario.funcionarioLider?.id ? inventario.funcionarioLider : funcionarioOption" *ngFor="let funcionarioOption of funcionarioliders; trackBy: trackFuncionarioById">{{funcionarioOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-control-label" for="field_cliente">Cliente</label>
-            <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="inventario.cliente">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="clienteOption.id === inventario.cliente?.id ? inventario.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
             </select>
         </div>
     </div>
