@@ -237,9 +237,12 @@ entity Configuracao {
     BinCustomizado3 String
 }
 
+relationship OneToMany {
+	Cliente{inventarios} to Inventario
+}
+
 relationship OneToOne {
 	Inventario{funcionarioLider} to Funcionario
-    Inventario{cliente} to Cliente
     
     Transmissao{inventario} to Inventario
     Transmissao{funcionario} to Funcionario

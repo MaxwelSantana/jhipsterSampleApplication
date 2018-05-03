@@ -49,9 +49,11 @@
             <column name="nome_loja" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+
+            <column name="cliente_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="funcionario_lider_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="cliente_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->

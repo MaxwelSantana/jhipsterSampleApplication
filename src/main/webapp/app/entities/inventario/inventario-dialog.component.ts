@@ -9,8 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Inventario } from './inventario.model';
 import { InventarioPopupService } from './inventario-popup.service';
 import { InventarioService } from './inventario.service';
-import { Funcionario, FuncionarioService } from '../funcionario';
 import { Cliente, ClienteService } from '../cliente';
+import { Funcionario, FuncionarioService } from '../funcionario';
 
 @Component({
     selector: 'jhi-inventario-dialog',
@@ -21,23 +21,25 @@ export class InventarioDialogComponent implements OnInit {
     inventario: Inventario;
     isSaving: boolean;
 
-    funcionarioliders: Funcionario[];
-
     clientes: Cliente[];
+
+    funcionarioliders: Funcionario[];
     dataInventarioDp: any;
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private inventarioService: InventarioService,
-        private funcionarioService: FuncionarioService,
         private clienteService: ClienteService,
+        private funcionarioService: FuncionarioService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.clienteService.query()
+            .subscribe((res: HttpResponse<Cliente[]>) => { this.clientes = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.funcionarioService
             .query({filter: 'inventario-is-null'})
             .subscribe((res: HttpResponse<Funcionario[]>) => {
@@ -48,19 +50,6 @@ export class InventarioDialogComponent implements OnInit {
                         .find(this.inventario.funcionarioLider.id)
                         .subscribe((subRes: HttpResponse<Funcionario>) => {
                             this.funcionarioliders = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.clienteService
-            .query({filter: 'inventario-is-null'})
-            .subscribe((res: HttpResponse<Cliente[]>) => {
-                if (!this.inventario.cliente || !this.inventario.cliente.id) {
-                    this.clientes = res.body;
-                } else {
-                    this.clienteService
-                        .find(this.inventario.cliente.id)
-                        .subscribe((subRes: HttpResponse<Cliente>) => {
-                            this.clientes = [subRes.body].concat(res.body);
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
@@ -100,11 +89,11 @@ export class InventarioDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackFuncionarioById(index: number, item: Funcionario) {
+    trackClienteById(index: number, item: Cliente) {
         return item.id;
     }
 
-    trackClienteById(index: number, item: Cliente) {
+    trackFuncionarioById(index: number, item: Funcionario) {
         return item.id;
     }
 }
