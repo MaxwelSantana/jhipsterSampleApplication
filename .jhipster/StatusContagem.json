@@ -1,6 +1,19 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "secoes",
+            "otherEntityName": "secao",
+            "otherEntityRelationshipName": "statusContagem"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "contagens",
+            "otherEntityName": "contagem",
+            "otherEntityRelationshipName": "statusContagem"
+        }
+    ],
     "fields": [
         {
             "fieldName": "descricao",

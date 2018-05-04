@@ -2,27 +2,27 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "secao",
-            "otherEntityName": "secao",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "contagem"
-        },
-        {
-            "relationshipType": "one-to-one",
             "relationshipName": "statusContagem",
             "otherEntityName": "statusContagem",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "contagem"
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
             "relationshipName": "motivoAlteracao",
             "otherEntityName": "motivoAlteracao",
-            "otherEntityField": "id",
-            "ownerSide": true,
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "secao",
+            "otherEntityName": "secao",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "logAlteracoes",
+            "otherEntityName": "logAlteracaoContagem",
             "otherEntityRelationshipName": "contagem"
         }
     ],

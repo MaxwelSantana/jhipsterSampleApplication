@@ -1,6 +1,19 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "inventarios",
+            "otherEntityName": "inventario",
+            "otherEntityRelationshipName": "funcionario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "trasmissoes",
+            "otherEntityName": "transmissao",
+            "otherEntityRelationshipName": "funcionario"
+        }
+    ],
     "fields": [
         {
             "fieldName": "nome",

@@ -8,16 +8,16 @@
         <dd>
             <span>{{secao.codigo}}</span>
         </dd>
-        <dt><span>Transmissao</span></dt>
-        <dd>
-            <div *ngIf="secao.transmissao">
-                <a [routerLink]="['/transmissao', secao.transmissao?.id]">{{secao.transmissao?.id}}</a>
-            </div>
-        </dd>
         <dt><span>Status Contagem</span></dt>
         <dd>
             <div *ngIf="secao.statusContagem">
                 <a [routerLink]="['/status-contagem', secao.statusContagem?.id]">{{secao.statusContagem?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Transmissao</span></dt>
+        <dd>
+            <div *ngIf="secao.transmissao">
+                <a [routerLink]="['/transmissao', secao.transmissao?.id]">{{secao.transmissao?.id}}</a>
             </div>
         </dd>
     </dl>

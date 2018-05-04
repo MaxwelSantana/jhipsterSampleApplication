@@ -23,7 +23,7 @@ export class InventarioDialogComponent implements OnInit {
 
     clientes: Cliente[];
 
-    funcionarioliders: Funcionario[];
+    funcionarios: Funcionario[];
     dataInventarioDp: any;
 
     constructor(
@@ -40,19 +40,8 @@ export class InventarioDialogComponent implements OnInit {
         this.isSaving = false;
         this.clienteService.query()
             .subscribe((res: HttpResponse<Cliente[]>) => { this.clientes = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.funcionarioService
-            .query({filter: 'inventario-is-null'})
-            .subscribe((res: HttpResponse<Funcionario[]>) => {
-                if (!this.inventario.funcionarioLider || !this.inventario.funcionarioLider.id) {
-                    this.funcionarioliders = res.body;
-                } else {
-                    this.funcionarioService
-                        .find(this.inventario.funcionarioLider.id)
-                        .subscribe((subRes: HttpResponse<Funcionario>) => {
-                            this.funcionarioliders = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.funcionarioService.query()
+            .subscribe((res: HttpResponse<Funcionario[]>) => { this.funcionarios = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {

@@ -239,34 +239,32 @@ entity Configuracao {
 
 relationship OneToMany {
 	Cliente{inventarios} to Inventario
+    Funcionario{inventarios} to Inventario
+    
+    Inventario{trasmissoes} to Transmissao
+    Funcionario{trasmissoes} to Transmissao
+    Coletor{trasmissoes} to Transmissao
+    TipoContagem{trasmissoes} to Transmissao
+    
+    Transmissao{secoes} to Secao
+    StatusContagem{secoes} to Secao
+    
+    Secao{contagens} to Contagem
+    StatusContagem{contagens} to Contagem
+    MotivoAlteracao{contagens} to Contagem
+    
+    Contagem{logAlteracoes} to LogAlteracaoContagem
+    
+    Inventario{cadastros} to Cadastro
+    Inventario{logStatusInventario} to LogStatusInventario
 }
 
 relationship OneToOne {
-	Inventario{funcionarioLider} to Funcionario
-    
-    Transmissao{inventario} to Inventario
-    Transmissao{funcionario} to Funcionario
-    Transmissao{coletor} to Coletor
-    Transmissao{tipoContagem} to TipoContagem
-    
-    Secao{transmissao} to Transmissao
-    Secao{statusContagem} to StatusContagem
-    
-    Contagem{secao} to Secao
-    Contagem{statusContagem} to StatusContagem
-    Contagem{motivoAlteracao} to MotivoAlteracao
-    
-    LogAlteracaoContagem{contagem} to Contagem
-    
-    Cadastro{inventario} to Inventario
-    
     Mapeamento{inventario} to Inventario
     
     LogStatusInventario{statusInventario} to StatusInventario
-    LogStatusInventario{inventario} to Inventario
     
     CampoCustomizavelColeta{cliente} to Cliente
-    
     CampoCustomizavelCadastro{cliente} to Cliente
     
     Configuracao{cliente} to Cliente

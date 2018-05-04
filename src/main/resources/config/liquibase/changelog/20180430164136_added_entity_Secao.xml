@@ -25,11 +25,15 @@
             <column name="codigo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="transmissao_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="status_contagem_id" type="bigint">
-                <constraints unique="true" nullable="true" />
+
+            <column name="status_contagem_id" type="bigint">
+                <constraints nullable="true" />
             </column>
+
+            <column name="transmissao_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

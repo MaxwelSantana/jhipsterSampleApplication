@@ -1,5 +1,6 @@
 package io.github.jhipster.application.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -8,6 +9,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -111,17 +114,19 @@ public class Contagem implements Serializable {
     @Column(name = "bin_customizado_3")
     private Boolean binCustomizado3;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Secao secao;
-
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private StatusContagem statusContagem;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private MotivoAlteracao motivoAlteracao;
+
+    @ManyToOne
+    private Secao secao;
+
+    @OneToMany(mappedBy = "contagem")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<LogAlteracaoContagem> logAlteracoes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -509,19 +514,6 @@ public class Contagem implements Serializable {
         this.binCustomizado3 = binCustomizado3;
     }
 
-    public Secao getSecao() {
-        return secao;
-    }
-
-    public Contagem secao(Secao secao) {
-        this.secao = secao;
-        return this;
-    }
-
-    public void setSecao(Secao secao) {
-        this.secao = secao;
-    }
-
     public StatusContagem getStatusContagem() {
         return statusContagem;
     }
@@ -546,6 +538,44 @@ public class Contagem implements Serializable {
 
     public void setMotivoAlteracao(MotivoAlteracao motivoAlteracao) {
         this.motivoAlteracao = motivoAlteracao;
+    }
+
+    public Secao getSecao() {
+        return secao;
+    }
+
+    public Contagem secao(Secao secao) {
+        this.secao = secao;
+        return this;
+    }
+
+    public void setSecao(Secao secao) {
+        this.secao = secao;
+    }
+
+    public Set<LogAlteracaoContagem> getLogAlteracoes() {
+        return logAlteracoes;
+    }
+
+    public Contagem logAlteracoes(Set<LogAlteracaoContagem> logAlteracaoContagems) {
+        this.logAlteracoes = logAlteracaoContagems;
+        return this;
+    }
+
+    public Contagem addLogAlteracoes(LogAlteracaoContagem logAlteracaoContagem) {
+        this.logAlteracoes.add(logAlteracaoContagem);
+        logAlteracaoContagem.setContagem(this);
+        return this;
+    }
+
+    public Contagem removeLogAlteracoes(LogAlteracaoContagem logAlteracaoContagem) {
+        this.logAlteracoes.remove(logAlteracaoContagem);
+        logAlteracaoContagem.setContagem(null);
+        return this;
+    }
+
+    public void setLogAlteracoes(Set<LogAlteracaoContagem> logAlteracaoContagems) {
+        this.logAlteracoes = logAlteracaoContagems;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

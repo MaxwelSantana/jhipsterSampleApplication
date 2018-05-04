@@ -9,10 +9,10 @@ import { JhipsterSampleApplicationTestModule } from '../../../test.module';
 import { TransmissaoDialogComponent } from '../../../../../../main/webapp/app/entities/transmissao/transmissao-dialog.component';
 import { TransmissaoService } from '../../../../../../main/webapp/app/entities/transmissao/transmissao.service';
 import { Transmissao } from '../../../../../../main/webapp/app/entities/transmissao/transmissao.model';
-import { InventarioService } from '../../../../../../main/webapp/app/entities/inventario';
 import { FuncionarioService } from '../../../../../../main/webapp/app/entities/funcionario';
 import { ColetorService } from '../../../../../../main/webapp/app/entities/coletor';
 import { TipoContagemService } from '../../../../../../main/webapp/app/entities/tipo-contagem';
+import { InventarioService } from '../../../../../../main/webapp/app/entities/inventario';
 
 describe('Component Tests', () => {
 
@@ -28,10 +28,10 @@ describe('Component Tests', () => {
                 imports: [JhipsterSampleApplicationTestModule],
                 declarations: [TransmissaoDialogComponent],
                 providers: [
-                    InventarioService,
                     FuncionarioService,
                     ColetorService,
                     TipoContagemService,
+                    InventarioService,
                     TransmissaoService
                 ]
             })

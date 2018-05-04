@@ -33,19 +33,8 @@ export class LogAlteracaoContagemDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.contagemService
-            .query({filter: 'logalteracaocontagem-is-null'})
-            .subscribe((res: HttpResponse<Contagem[]>) => {
-                if (!this.logAlteracaoContagem.contagem || !this.logAlteracaoContagem.contagem.id) {
-                    this.contagems = res.body;
-                } else {
-                    this.contagemService
-                        .find(this.logAlteracaoContagem.contagem.id)
-                        .subscribe((subRes: HttpResponse<Contagem>) => {
-                            this.contagems = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.contagemService.query()
+            .subscribe((res: HttpResponse<Contagem[]>) => { this.contagems = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {

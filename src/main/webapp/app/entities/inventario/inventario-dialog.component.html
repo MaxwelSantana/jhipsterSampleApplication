@@ -61,10 +61,10 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="field_funcionarioLider">Funcionario Lider</label>
-            <select class="form-control" id="field_funcionarioLider" name="funcionarioLider" [(ngModel)]="inventario.funcionarioLider">
+            <label class="form-control-label" for="field_funcionario">Funcionario</label>
+            <select class="form-control" id="field_funcionario" name="funcionario" [(ngModel)]="inventario.funcionario" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="funcionarioOption.id === inventario.funcionarioLider?.id ? inventario.funcionarioLider : funcionarioOption" *ngFor="let funcionarioOption of funcionarioliders; trackBy: trackFuncionarioById">{{funcionarioOption.id}}</option>
+                <option [ngValue]="funcionarioOption.id === inventario.funcionario?.id ? inventario.funcionario : funcionarioOption" *ngFor="let funcionarioOption of funcionarios; trackBy: trackFuncionarioById">{{funcionarioOption.id}}</option>
             </select>
         </div>
     </div>

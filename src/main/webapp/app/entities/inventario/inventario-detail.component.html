@@ -38,10 +38,10 @@
                 <a [routerLink]="['/cliente', inventario.cliente?.id]">{{inventario.cliente?.id}}</a>
             </div>
         </dd>
-        <dt><span>Funcionario Lider</span></dt>
+        <dt><span>Funcionario</span></dt>
         <dd>
-            <div *ngIf="inventario.funcionarioLider">
-                <a [routerLink]="['/funcionario', inventario.funcionarioLider?.id]">{{inventario.funcionarioLider?.id}}</a>
+            <div *ngIf="inventario.funcionario">
+                <a [routerLink]="['/funcionario', inventario.funcionario?.id]">{{inventario.funcionario?.id}}</a>
             </div>
         </dd>
     </dl>

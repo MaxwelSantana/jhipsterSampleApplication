@@ -18,8 +18,8 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Codigo</span></th>
-            <th><span>Transmissao</span></th>
             <th><span>Status Contagem</span></th>
+            <th><span>Transmissao</span></th>
             <th></th>
             </tr>
             </thead>
@@ -28,13 +28,13 @@
                 <td><a [routerLink]="['../secao', secao.id ]">{{secao.id}}</a></td>
                 <td>{{secao.codigo}}</td>
                 <td>
-                    <div *ngIf="secao.transmissao">
-                        <a [routerLink]="['../transmissao', secao.transmissao?.id ]" >{{secao.transmissao?.id}}</a>
+                    <div *ngIf="secao.statusContagem">
+                        <a [routerLink]="['../status-contagem', secao.statusContagem?.id ]" >{{secao.statusContagem?.id}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="secao.statusContagem">
-                        <a [routerLink]="['../status-contagem', secao.statusContagem?.id ]" >{{secao.statusContagem?.id}}</a>
+                    <div *ngIf="secao.transmissao">
+                        <a [routerLink]="['../transmissao', secao.transmissao?.id ]" >{{secao.transmissao?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

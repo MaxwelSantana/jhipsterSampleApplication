@@ -19,10 +19,10 @@
             <th><span>ID</span></th>
             <th><span>Time Stamp</span></th>
             <th><span>Versao Coletor</span></th>
-            <th><span>Inventario</span></th>
             <th><span>Funcionario</span></th>
             <th><span>Coletor</span></th>
             <th><span>Tipo Contagem</span></th>
+            <th><span>Inventario</span></th>
             <th></th>
             </tr>
             </thead>
@@ -31,11 +31,6 @@
                 <td><a [routerLink]="['../transmissao', transmissao.id ]">{{transmissao.id}}</a></td>
                 <td>{{transmissao.timeStamp | date:'medium'}}</td>
                 <td>{{transmissao.versaoColetor}}</td>
-                <td>
-                    <div *ngIf="transmissao.inventario">
-                        <a [routerLink]="['../inventario', transmissao.inventario?.id ]" >{{transmissao.inventario?.id}}</a>
-                    </div>
-                </td>
                 <td>
                     <div *ngIf="transmissao.funcionario">
                         <a [routerLink]="['../funcionario', transmissao.funcionario?.id ]" >{{transmissao.funcionario?.id}}</a>
@@ -49,6 +44,11 @@
                 <td>
                     <div *ngIf="transmissao.tipoContagem">
                         <a [routerLink]="['../tipo-contagem', transmissao.tipoContagem?.id ]" >{{transmissao.tipoContagem?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="transmissao.inventario">
+                        <a [routerLink]="['../inventario', transmissao.inventario?.id ]" >{{transmissao.inventario?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

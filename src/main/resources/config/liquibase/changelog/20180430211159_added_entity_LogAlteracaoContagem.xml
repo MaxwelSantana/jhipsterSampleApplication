@@ -37,9 +37,11 @@
             <column name="time_stamp" type="timestamp">
                 <constraints nullable="true" />
             </column>
+
             <column name="contagem_id" type="bigint">
-                <constraints unique="true" nullable="true" />
+                <constraints nullable="true" />
             </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="log_alteracao_contagem" columnName="time_stamp" columnDataType="datetime"/>

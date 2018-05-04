@@ -120,12 +120,6 @@
         <dd>
             <span>{{contagem.binCustomizado3}}</span>
         </dd>
-        <dt><span>Secao</span></dt>
-        <dd>
-            <div *ngIf="contagem.secao">
-                <a [routerLink]="['/secao', contagem.secao?.id]">{{contagem.secao?.id}}</a>
-            </div>
-        </dd>
         <dt><span>Status Contagem</span></dt>
         <dd>
             <div *ngIf="contagem.statusContagem">
@@ -136,6 +130,12 @@
         <dd>
             <div *ngIf="contagem.motivoAlteracao">
                 <a [routerLink]="['/motivo-alteracao', contagem.motivoAlteracao?.id]">{{contagem.motivoAlteracao?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Secao</span></dt>
+        <dd>
+            <div *ngIf="contagem.secao">
+                <a [routerLink]="['/secao', contagem.secao?.id]">{{contagem.secao?.id}}</a>
             </div>
         </dd>
     </dl>

@@ -2,35 +2,33 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "inventario",
-            "otherEntityName": "inventario",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "transmissao"
-        },
-        {
-            "relationshipType": "one-to-one",
             "relationshipName": "funcionario",
             "otherEntityName": "funcionario",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "transmissao"
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
             "relationshipName": "coletor",
             "otherEntityName": "coletor",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "transmissao"
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
             "relationshipName": "tipoContagem",
             "otherEntityName": "tipoContagem",
-            "otherEntityField": "id",
-            "ownerSide": true,
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "inventario",
+            "otherEntityName": "inventario",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "secoes",
+            "otherEntityName": "secao",
             "otherEntityRelationshipName": "transmissao"
         }
     ],

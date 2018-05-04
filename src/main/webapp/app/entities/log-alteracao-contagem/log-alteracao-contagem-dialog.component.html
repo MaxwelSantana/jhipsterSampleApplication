@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <label class="form-control-label" for="field_contagem">Contagem</label>
-            <select class="form-control" id="field_contagem" name="contagem" [(ngModel)]="logAlteracaoContagem.contagem">
+            <select class="form-control" id="field_contagem" name="contagem" [(ngModel)]="logAlteracaoContagem.contagem" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="contagemOption.id === logAlteracaoContagem.contagem?.id ? logAlteracaoContagem.contagem : contagemOption" *ngFor="let contagemOption of contagems; trackBy: trackContagemById">{{contagemOption.id}}</option>
             </select>

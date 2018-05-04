@@ -9,8 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { LogStatusInventario } from './log-status-inventario.model';
 import { LogStatusInventarioPopupService } from './log-status-inventario-popup.service';
 import { LogStatusInventarioService } from './log-status-inventario.service';
-import { StatusInventario, StatusInventarioService } from '../status-inventario';
 import { Inventario, InventarioService } from '../inventario';
+import { StatusInventario, StatusInventarioService } from '../status-inventario';
 
 @Component({
     selector: 'jhi-log-status-inventario-dialog',
@@ -21,22 +21,24 @@ export class LogStatusInventarioDialogComponent implements OnInit {
     logStatusInventario: LogStatusInventario;
     isSaving: boolean;
 
-    statusinventarios: StatusInventario[];
-
     inventarios: Inventario[];
+
+    statusinventarios: StatusInventario[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private logStatusInventarioService: LogStatusInventarioService,
-        private statusInventarioService: StatusInventarioService,
         private inventarioService: InventarioService,
+        private statusInventarioService: StatusInventarioService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.inventarioService.query()
+            .subscribe((res: HttpResponse<Inventario[]>) => { this.inventarios = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.statusInventarioService
             .query({filter: 'logstatusinventario-is-null'})
             .subscribe((res: HttpResponse<StatusInventario[]>) => {
@@ -47,19 +49,6 @@ export class LogStatusInventarioDialogComponent implements OnInit {
                         .find(this.logStatusInventario.statusInventario.id)
                         .subscribe((subRes: HttpResponse<StatusInventario>) => {
                             this.statusinventarios = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.inventarioService
-            .query({filter: 'logstatusinventario-is-null'})
-            .subscribe((res: HttpResponse<Inventario[]>) => {
-                if (!this.logStatusInventario.inventario || !this.logStatusInventario.inventario.id) {
-                    this.inventarios = res.body;
-                } else {
-                    this.inventarioService
-                        .find(this.logStatusInventario.inventario.id)
-                        .subscribe((subRes: HttpResponse<Inventario>) => {
-                            this.inventarios = [subRes.body].concat(res.body);
                         }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
                 }
             }, (res: HttpErrorResponse) => this.onError(res.message));
@@ -99,11 +88,11 @@ export class LogStatusInventarioDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackStatusInventarioById(index: number, item: StatusInventario) {
+    trackInventarioById(index: number, item: Inventario) {
         return item.id;
     }
 
-    trackInventarioById(index: number, item: Inventario) {
+    trackStatusInventarioById(index: number, item: StatusInventario) {
         return item.id;
     }
 }

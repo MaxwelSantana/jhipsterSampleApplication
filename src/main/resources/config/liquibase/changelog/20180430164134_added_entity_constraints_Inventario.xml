@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="cliente"/>
 
-        <addForeignKeyConstraint baseColumnNames="funcionario_lider_id"
+        <addForeignKeyConstraint baseColumnNames="funcionario_id"
                                  baseTableName="inventario"
-                                 constraintName="fk_inventario_funcionario_lider_id"
+                                 constraintName="fk_inventario_funcionario_id"
                                  referencedColumnNames="id"
                                  referencedTableName="funcionario"/>
 

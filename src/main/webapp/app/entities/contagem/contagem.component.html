@@ -46,9 +46,9 @@
             <th><span>Bin Customizado 1</span></th>
             <th><span>Bin Customizado 2</span></th>
             <th><span>Bin Customizado 3</span></th>
-            <th><span>Secao</span></th>
             <th><span>Status Contagem</span></th>
             <th><span>Motivo Alteracao</span></th>
+            <th><span>Secao</span></th>
             <th></th>
             </tr>
             </thead>
@@ -85,11 +85,6 @@
                 <td>{{contagem.binCustomizado2}}</td>
                 <td>{{contagem.binCustomizado3}}</td>
                 <td>
-                    <div *ngIf="contagem.secao">
-                        <a [routerLink]="['../secao', contagem.secao?.id ]" >{{contagem.secao?.id}}</a>
-                    </div>
-                </td>
-                <td>
                     <div *ngIf="contagem.statusContagem">
                         <a [routerLink]="['../status-contagem', contagem.statusContagem?.id ]" >{{contagem.statusContagem?.id}}</a>
                     </div>
@@ -97,6 +92,11 @@
                 <td>
                     <div *ngIf="contagem.motivoAlteracao">
                         <a [routerLink]="['../motivo-alteracao', contagem.motivoAlteracao?.id ]" >{{contagem.motivoAlteracao?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="contagem.secao">
+                        <a [routerLink]="['../secao', contagem.secao?.id ]" >{{contagem.secao?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

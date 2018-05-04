@@ -137,13 +137,19 @@
             <column name="bin_customizado_3" type="bit">
                 <constraints nullable="true" />
             </column>
-            <column name="secao_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="status_contagem_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="motivo_alteracao_id" type="bigint">
-                <constraints unique="true" nullable="true" />
+
+            <column name="status_contagem_id" type="bigint">
+                <constraints nullable="true" />
             </column>
+
+            <column name="motivo_alteracao_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="secao_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="contagem" columnName="time_stamp" columnDataType="datetime"/>

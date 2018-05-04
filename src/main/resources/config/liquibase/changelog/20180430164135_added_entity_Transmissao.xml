@@ -29,15 +29,23 @@
             <column name="versao_coletor" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="inventario_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="funcionario_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="coletor_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="tipo_contagem_id" type="bigint">
-                <constraints unique="true" nullable="true" />
+
+            <column name="funcionario_id" type="bigint">
+                <constraints nullable="true" />
             </column>
+
+            <column name="coletor_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tipo_contagem_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="inventario_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="transmissao" columnName="time_stamp" columnDataType="datetime"/>

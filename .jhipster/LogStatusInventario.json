@@ -2,17 +2,15 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "statusInventario",
-            "otherEntityName": "statusInventario",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "logStatusInventario"
+            "relationshipName": "inventario",
+            "otherEntityName": "inventario",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "inventario",
-            "otherEntityName": "inventario",
+            "relationshipName": "statusInventario",
+            "otherEntityName": "statusInventario",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "logStatusInventario"

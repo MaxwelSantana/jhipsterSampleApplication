@@ -9,9 +9,9 @@ import { JhipsterSampleApplicationTestModule } from '../../../test.module';
 import { ContagemDialogComponent } from '../../../../../../main/webapp/app/entities/contagem/contagem-dialog.component';
 import { ContagemService } from '../../../../../../main/webapp/app/entities/contagem/contagem.service';
 import { Contagem } from '../../../../../../main/webapp/app/entities/contagem/contagem.model';
-import { SecaoService } from '../../../../../../main/webapp/app/entities/secao';
 import { StatusContagemService } from '../../../../../../main/webapp/app/entities/status-contagem';
 import { MotivoAlteracaoService } from '../../../../../../main/webapp/app/entities/motivo-alteracao';
+import { SecaoService } from '../../../../../../main/webapp/app/entities/secao';
 
 describe('Component Tests', () => {
 
@@ -27,9 +27,9 @@ describe('Component Tests', () => {
                 imports: [JhipsterSampleApplicationTestModule],
                 declarations: [ContagemDialogComponent],
                 providers: [
-                    SecaoService,
                     StatusContagemService,
                     MotivoAlteracaoService,
+                    SecaoService,
                     ContagemService
                 ]
             })

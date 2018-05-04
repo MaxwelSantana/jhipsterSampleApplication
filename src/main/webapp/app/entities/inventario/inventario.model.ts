@@ -11,7 +11,10 @@ export class Inventario implements BaseEntity {
         public qtdPessoas?: number,
         public nomeLoja?: string,
         public cliente?: BaseEntity,
-        public funcionarioLider?: BaseEntity,
+        public funcionario?: BaseEntity,
+        public trasmissoes?: BaseEntity[],
+        public cadastros?: BaseEntity[],
+        public logStatusInventarios?: BaseEntity[],
     ) {
     }
 }

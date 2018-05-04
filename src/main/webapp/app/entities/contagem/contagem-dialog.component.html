@@ -161,24 +161,24 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" for="field_secao">Secao</label>
-            <select class="form-control" id="field_secao" name="secao" [(ngModel)]="contagem.secao">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="secaoOption.id === contagem.secao?.id ? contagem.secao : secaoOption" *ngFor="let secaoOption of secaos; trackBy: trackSecaoById">{{secaoOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" for="field_statusContagem">Status Contagem</label>
-            <select class="form-control" id="field_statusContagem" name="statusContagem" [(ngModel)]="contagem.statusContagem">
+            <select class="form-control" id="field_statusContagem" name="statusContagem" [(ngModel)]="contagem.statusContagem" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="statusContagemOption.id === contagem.statusContagem?.id ? contagem.statusContagem : statusContagemOption" *ngFor="let statusContagemOption of statuscontagems; trackBy: trackStatusContagemById">{{statusContagemOption.id}}</option>
             </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" for="field_motivoAlteracao">Motivo Alteracao</label>
-            <select class="form-control" id="field_motivoAlteracao" name="motivoAlteracao" [(ngModel)]="contagem.motivoAlteracao">
+            <select class="form-control" id="field_motivoAlteracao" name="motivoAlteracao" [(ngModel)]="contagem.motivoAlteracao" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="motivoAlteracaoOption.id === contagem.motivoAlteracao?.id ? contagem.motivoAlteracao : motivoAlteracaoOption" *ngFor="let motivoAlteracaoOption of motivoalteracaos; trackBy: trackMotivoAlteracaoById">{{motivoAlteracaoOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_secao">Secao</label>
+            <select class="form-control" id="field_secao" name="secao" [(ngModel)]="contagem.secao" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="secaoOption.id === contagem.secao?.id ? contagem.secao : secaoOption" *ngFor="let secaoOption of secaos; trackBy: trackSecaoById">{{secaoOption.id}}</option>
             </select>
         </div>
     </div>

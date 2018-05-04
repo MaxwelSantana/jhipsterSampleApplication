@@ -9,9 +9,9 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Contagem } from './contagem.model';
 import { ContagemPopupService } from './contagem-popup.service';
 import { ContagemService } from './contagem.service';
-import { Secao, SecaoService } from '../secao';
 import { StatusContagem, StatusContagemService } from '../status-contagem';
 import { MotivoAlteracao, MotivoAlteracaoService } from '../motivo-alteracao';
+import { Secao, SecaoService } from '../secao';
 
 @Component({
     selector: 'jhi-contagem-dialog',
@@ -22,64 +22,31 @@ export class ContagemDialogComponent implements OnInit {
     contagem: Contagem;
     isSaving: boolean;
 
-    secaos: Secao[];
-
     statuscontagems: StatusContagem[];
 
     motivoalteracaos: MotivoAlteracao[];
+
+    secaos: Secao[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private contagemService: ContagemService,
-        private secaoService: SecaoService,
         private statusContagemService: StatusContagemService,
         private motivoAlteracaoService: MotivoAlteracaoService,
+        private secaoService: SecaoService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.secaoService
-            .query({filter: 'contagem-is-null'})
-            .subscribe((res: HttpResponse<Secao[]>) => {
-                if (!this.contagem.secao || !this.contagem.secao.id) {
-                    this.secaos = res.body;
-                } else {
-                    this.secaoService
-                        .find(this.contagem.secao.id)
-                        .subscribe((subRes: HttpResponse<Secao>) => {
-                            this.secaos = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.statusContagemService
-            .query({filter: 'contagem-is-null'})
-            .subscribe((res: HttpResponse<StatusContagem[]>) => {
-                if (!this.contagem.statusContagem || !this.contagem.statusContagem.id) {
-                    this.statuscontagems = res.body;
-                } else {
-                    this.statusContagemService
-                        .find(this.contagem.statusContagem.id)
-                        .subscribe((subRes: HttpResponse<StatusContagem>) => {
-                            this.statuscontagems = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.motivoAlteracaoService
-            .query({filter: 'contagem-is-null'})
-            .subscribe((res: HttpResponse<MotivoAlteracao[]>) => {
-                if (!this.contagem.motivoAlteracao || !this.contagem.motivoAlteracao.id) {
-                    this.motivoalteracaos = res.body;
-                } else {
-                    this.motivoAlteracaoService
-                        .find(this.contagem.motivoAlteracao.id)
-                        .subscribe((subRes: HttpResponse<MotivoAlteracao>) => {
-                            this.motivoalteracaos = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.statusContagemService.query()
+            .subscribe((res: HttpResponse<StatusContagem[]>) => { this.statuscontagems = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.motivoAlteracaoService.query()
+            .subscribe((res: HttpResponse<MotivoAlteracao[]>) => { this.motivoalteracaos = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.secaoService.query()
+            .subscribe((res: HttpResponse<Secao[]>) => { this.secaos = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -116,15 +83,15 @@ export class ContagemDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackSecaoById(index: number, item: Secao) {
-        return item.id;
-    }
-
     trackStatusContagemById(index: number, item: StatusContagem) {
         return item.id;
     }
 
     trackMotivoAlteracaoById(index: number, item: MotivoAlteracao) {
+        return item.id;
+    }
+
+    trackSecaoById(index: number, item: Secao) {
         return item.id;
     }
 }
