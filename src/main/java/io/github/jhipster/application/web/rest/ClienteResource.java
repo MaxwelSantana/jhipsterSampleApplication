@@ -1,8 +1,10 @@
 package io.github.jhipster.application.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import io.github.jhipster.application.domain.Cliente;
+import com.fasterxml.jackson.annotation.JsonView;
 
+import io.github.jhipster.application.domain.Cliente;
+import io.github.jhipster.application.domain.View;
 import io.github.jhipster.application.repository.ClienteRepository;
 import io.github.jhipster.application.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.application.web.rest.util.HeaderUtil;
@@ -82,11 +84,13 @@ public class ClienteResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of clientes in body
      */
+    @JsonView(View.ClienteView.class)
     @GetMapping("/clientes")
     @Timed
     public List<Cliente> getAllClientes() {
         log.debug("REST request to get all Clientes");
-        return clienteRepository.findAll();
+        List<Cliente> clientes = clienteRepository.findAll();
+        return clientes;
         }
 
     /**

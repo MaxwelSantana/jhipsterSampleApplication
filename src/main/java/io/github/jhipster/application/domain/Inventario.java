@@ -1,13 +1,23 @@
 package io.github.jhipster.application.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 /**
  * A Inventario.
@@ -21,30 +31,39 @@ public class Inventario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(View.OveralView.class)
     private Long id;
 
     @Column(name = "numero_loja")
+    @JsonView(View.OveralView.class)
     private String numeroLoja;
 
     @Column(name = "data_inventario")
+    @JsonView(View.OveralView.class)
     private LocalDate dataInventario;
 
     @Column(name = "ordem_servico")
+    @JsonView(View.OveralView.class)
     private String ordemServico;
 
     @Column(name = "gerente_loja")
+    @JsonView(View.OveralView.class)
     private String gerenteLoja;
 
     @Column(name = "lider_inventario")
+    @JsonView(View.OveralView.class)
     private String liderInventario;
 
     @Column(name = "qtd_pessoas")
+    @JsonView(View.OveralView.class)
     private Integer qtdPessoas;
 
     @Column(name = "nome_loja")
+    @JsonView(View.OveralView.class)
     private String nomeLoja;
 
     @ManyToOne
+    @JsonView(View.InventarioView.class)
     private Cliente cliente;
 
     @OneToOne

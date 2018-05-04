@@ -1,8 +1,10 @@
 package io.github.jhipster.application.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import io.github.jhipster.application.domain.Inventario;
+import com.fasterxml.jackson.annotation.JsonView;
 
+import io.github.jhipster.application.domain.Inventario;
+import io.github.jhipster.application.domain.View;
 import io.github.jhipster.application.repository.InventarioRepository;
 import io.github.jhipster.application.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.application.web.rest.util.HeaderUtil;
@@ -82,6 +84,7 @@ public class InventarioResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of inventarios in body
      */
+    @JsonView(View.InventarioView.class)
     @GetMapping("/inventarios")
     @Timed
     public List<Inventario> getAllInventarios() {
