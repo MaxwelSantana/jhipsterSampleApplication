@@ -9,8 +9,8 @@ import { JhipsterSampleApplicationTestModule } from '../../../test.module';
 import { SecaoDialogComponent } from '../../../../../../main/webapp/app/entities/secao/secao-dialog.component';
 import { SecaoService } from '../../../../../../main/webapp/app/entities/secao/secao.service';
 import { Secao } from '../../../../../../main/webapp/app/entities/secao/secao.model';
-import { TransmissaoService } from '../../../../../../main/webapp/app/entities/transmissao';
 import { StatusContagemService } from '../../../../../../main/webapp/app/entities/status-contagem';
+import { TransmissaoService } from '../../../../../../main/webapp/app/entities/transmissao';
 
 describe('Component Tests', () => {
 
@@ -26,8 +26,8 @@ describe('Component Tests', () => {
                 imports: [JhipsterSampleApplicationTestModule],
                 declarations: [SecaoDialogComponent],
                 providers: [
-                    TransmissaoService,
                     StatusContagemService,
+                    TransmissaoService,
                     SecaoService
                 ]
             })

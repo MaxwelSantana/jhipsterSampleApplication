@@ -26,13 +26,12 @@ public class LogStatusInventario implements Serializable {
     @Column(name = "time_stamp")
     private Instant timeStamp;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private StatusInventario statusInventario;
+    @ManyToOne
+    private Inventario inventario;
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Inventario inventario;
+    private StatusInventario statusInventario;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -56,19 +55,6 @@ public class LogStatusInventario implements Serializable {
         this.timeStamp = timeStamp;
     }
 
-    public StatusInventario getStatusInventario() {
-        return statusInventario;
-    }
-
-    public LogStatusInventario statusInventario(StatusInventario statusInventario) {
-        this.statusInventario = statusInventario;
-        return this;
-    }
-
-    public void setStatusInventario(StatusInventario statusInventario) {
-        this.statusInventario = statusInventario;
-    }
-
     public Inventario getInventario() {
         return inventario;
     }
@@ -80,6 +66,19 @@ public class LogStatusInventario implements Serializable {
 
     public void setInventario(Inventario inventario) {
         this.inventario = inventario;
+    }
+
+    public StatusInventario getStatusInventario() {
+        return statusInventario;
+    }
+
+    public LogStatusInventario statusInventario(StatusInventario statusInventario) {
+        this.statusInventario = statusInventario;
+        return this;
+    }
+
+    public void setStatusInventario(StatusInventario statusInventario) {
+        this.statusInventario = statusInventario;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

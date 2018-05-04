@@ -1,11 +1,14 @@
 package io.github.jhipster.application.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -25,13 +28,16 @@ public class Secao implements Serializable {
     @Column(name = "codigo")
     private String codigo;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
+    private StatusContagem statusContagem;
+
+    @ManyToOne
     private Transmissao transmissao;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private StatusContagem statusContagem;
+    @OneToMany(mappedBy = "secao")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Contagem> contagens = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -55,6 +61,19 @@ public class Secao implements Serializable {
         this.codigo = codigo;
     }
 
+    public StatusContagem getStatusContagem() {
+        return statusContagem;
+    }
+
+    public Secao statusContagem(StatusContagem statusContagem) {
+        this.statusContagem = statusContagem;
+        return this;
+    }
+
+    public void setStatusContagem(StatusContagem statusContagem) {
+        this.statusContagem = statusContagem;
+    }
+
     public Transmissao getTransmissao() {
         return transmissao;
     }
@@ -68,17 +87,29 @@ public class Secao implements Serializable {
         this.transmissao = transmissao;
     }
 
-    public StatusContagem getStatusContagem() {
-        return statusContagem;
+    public Set<Contagem> getContagens() {
+        return contagens;
     }
 
-    public Secao statusContagem(StatusContagem statusContagem) {
-        this.statusContagem = statusContagem;
+    public Secao contagens(Set<Contagem> contagems) {
+        this.contagens = contagems;
         return this;
     }
 
-    public void setStatusContagem(StatusContagem statusContagem) {
-        this.statusContagem = statusContagem;
+    public Secao addContagens(Contagem contagem) {
+        this.contagens.add(contagem);
+        contagem.setSecao(this);
+        return this;
+    }
+
+    public Secao removeContagens(Contagem contagem) {
+        this.contagens.remove(contagem);
+        contagem.setSecao(null);
+        return this;
+    }
+
+    public void setContagens(Set<Contagem> contagems) {
+        this.contagens = contagems;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

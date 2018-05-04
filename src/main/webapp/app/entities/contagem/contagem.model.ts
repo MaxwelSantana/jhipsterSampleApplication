@@ -32,9 +32,10 @@ export class Contagem implements BaseEntity {
         public binCustomizado1?: boolean,
         public binCustomizado2?: boolean,
         public binCustomizado3?: boolean,
-        public secao?: BaseEntity,
         public statusContagem?: BaseEntity,
         public motivoAlteracao?: BaseEntity,
+        public secao?: BaseEntity,
+        public logAlteracoes?: BaseEntity[],
     ) {
         this.binCustomizado1 = false;
         this.binCustomizado2 = false;

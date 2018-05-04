@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "trasmissoes",
+            "otherEntityName": "transmissao",
+            "otherEntityRelationshipName": "tipoContagem"
+        }
+    ],
     "fields": [
         {
             "fieldName": "descricao",

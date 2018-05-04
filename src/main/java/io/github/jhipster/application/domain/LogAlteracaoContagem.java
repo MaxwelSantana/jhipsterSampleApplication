@@ -35,8 +35,7 @@ public class LogAlteracaoContagem implements Serializable {
     @Column(name = "time_stamp")
     private Instant timeStamp;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Contagem contagem;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

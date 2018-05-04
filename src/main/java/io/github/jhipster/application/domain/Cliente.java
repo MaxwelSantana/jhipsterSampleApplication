@@ -1,23 +1,15 @@
 package io.github.jhipster.application.domain;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import com.fasterxml.jackson.annotation.JsonView;
+import javax.persistence.*;
+
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Objects;
 
 /**
  * A Cliente.
@@ -31,19 +23,17 @@ public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(View.OveralView.class)
     private Long id;
 
     @Column(name = "nome")
-    @JsonView(View.OveralView.class)
     private String nome;
 
     @Column(name = "sigla")
-    @JsonView(View.OveralView.class)
     private String sigla;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    @JsonView(View.ClienteView.class)
+    @OneToMany(mappedBy = "cliente")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Inventario> inventarios = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -5,6 +5,8 @@ export class Funcionario implements BaseEntity {
         public id?: number,
         public nome?: string,
         public cpf?: string,
+        public inventarios?: BaseEntity[],
+        public trasmissoes?: BaseEntity[],
     ) {
     }
 }

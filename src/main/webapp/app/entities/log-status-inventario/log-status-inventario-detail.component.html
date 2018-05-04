@@ -8,16 +8,16 @@
         <dd>
             <span>{{logStatusInventario.timeStamp | date:'medium'}}</span>
         </dd>
-        <dt><span>Status Inventario</span></dt>
-        <dd>
-            <div *ngIf="logStatusInventario.statusInventario">
-                <a [routerLink]="['/status-inventario', logStatusInventario.statusInventario?.id]">{{logStatusInventario.statusInventario?.id}}</a>
-            </div>
-        </dd>
         <dt><span>Inventario</span></dt>
         <dd>
             <div *ngIf="logStatusInventario.inventario">
                 <a [routerLink]="['/inventario', logStatusInventario.inventario?.id]">{{logStatusInventario.inventario?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Status Inventario</span></dt>
+        <dd>
+            <div *ngIf="logStatusInventario.statusInventario">
+                <a [routerLink]="['/status-inventario', logStatusInventario.statusInventario?.id]">{{logStatusInventario.statusInventario?.id}}</a>
             </div>
         </dd>
     </dl>

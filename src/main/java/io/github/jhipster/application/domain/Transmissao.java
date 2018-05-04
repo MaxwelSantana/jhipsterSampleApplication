@@ -1,5 +1,6 @@
 package io.github.jhipster.application.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -7,6 +8,8 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -29,21 +32,22 @@ public class Transmissao implements Serializable {
     @Column(name = "versao_coletor")
     private String versaoColetor;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Inventario inventario;
-
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Funcionario funcionario;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Coletor coletor;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private TipoContagem tipoContagem;
+
+    @ManyToOne
+    private Inventario inventario;
+
+    @OneToMany(mappedBy = "transmissao")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Secao> secoes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -78,19 +82,6 @@ public class Transmissao implements Serializable {
 
     public void setVersaoColetor(String versaoColetor) {
         this.versaoColetor = versaoColetor;
-    }
-
-    public Inventario getInventario() {
-        return inventario;
-    }
-
-    public Transmissao inventario(Inventario inventario) {
-        this.inventario = inventario;
-        return this;
-    }
-
-    public void setInventario(Inventario inventario) {
-        this.inventario = inventario;
     }
 
     public Funcionario getFuncionario() {
@@ -130,6 +121,44 @@ public class Transmissao implements Serializable {
 
     public void setTipoContagem(TipoContagem tipoContagem) {
         this.tipoContagem = tipoContagem;
+    }
+
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public Transmissao inventario(Inventario inventario) {
+        this.inventario = inventario;
+        return this;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+
+    public Set<Secao> getSecoes() {
+        return secoes;
+    }
+
+    public Transmissao secoes(Set<Secao> secaos) {
+        this.secoes = secaos;
+        return this;
+    }
+
+    public Transmissao addSecoes(Secao secao) {
+        this.secoes.add(secao);
+        secao.setTransmissao(this);
+        return this;
+    }
+
+    public Transmissao removeSecoes(Secao secao) {
+        this.secoes.remove(secao);
+        secao.setTransmissao(null);
+        return this;
+    }
+
+    public void setSecoes(Set<Secao> secaos) {
+        this.secoes = secaos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

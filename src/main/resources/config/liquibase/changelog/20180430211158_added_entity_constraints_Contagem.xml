@@ -8,12 +8,6 @@
     -->
     <changeSet id="20180430211158-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="secao_id"
-                                 baseTableName="contagem"
-                                 constraintName="fk_contagem_secao_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="secao"/>
-
         <addForeignKeyConstraint baseColumnNames="status_contagem_id"
                                  baseTableName="contagem"
                                  constraintName="fk_contagem_status_contagem_id"
@@ -25,6 +19,12 @@
                                  constraintName="fk_contagem_motivo_alteracao_id"
                                  referencedColumnNames="id"
                                  referencedTableName="motivo_alteracao"/>
+
+        <addForeignKeyConstraint baseColumnNames="secao_id"
+                                 baseTableName="contagem"
+                                 constraintName="fk_contagem_secao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="secao"/>
 
     </changeSet>
 </databaseChangeLog>

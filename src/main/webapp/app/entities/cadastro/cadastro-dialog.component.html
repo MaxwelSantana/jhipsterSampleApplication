@@ -170,7 +170,7 @@
 
         <div class="form-group">
             <label class="form-control-label" for="field_inventario">Inventario</label>
-            <select class="form-control" id="field_inventario" name="inventario" [(ngModel)]="cadastro.inventario">
+            <select class="form-control" id="field_inventario" name="inventario" [(ngModel)]="cadastro.inventario" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="inventarioOption.id === cadastro.inventario?.id ? cadastro.inventario : inventarioOption" *ngFor="let inventarioOption of inventarios; trackBy: trackInventarioById">{{inventarioOption.id}}</option>
             </select>

@@ -8,11 +8,27 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "funcionarioLider",
+            "relationshipName": "funcionario",
             "otherEntityName": "funcionario",
-            "otherEntityField": "id",
-            "ownerSide": true,
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "trasmissoes",
+            "otherEntityName": "transmissao",
+            "otherEntityRelationshipName": "inventario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cadastros",
+            "otherEntityName": "cadastro",
+            "otherEntityRelationshipName": "inventario"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "logStatusInventario",
+            "otherEntityName": "logStatusInventario",
             "otherEntityRelationshipName": "inventario"
         }
     ],

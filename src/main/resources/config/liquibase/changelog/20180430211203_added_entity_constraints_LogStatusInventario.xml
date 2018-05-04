@@ -8,17 +8,17 @@
     -->
     <changeSet id="20180430211203-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="status_inventario_id"
-                                 baseTableName="log_status_inventario"
-                                 constraintName="fk_log_status_inventario_status_inventario_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="status_inventario"/>
-
         <addForeignKeyConstraint baseColumnNames="inventario_id"
                                  baseTableName="log_status_inventario"
                                  constraintName="fk_log_status_inventario_inventario_id"
                                  referencedColumnNames="id"
                                  referencedTableName="inventario"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_inventario_id"
+                                 baseTableName="log_status_inventario"
+                                 constraintName="fk_log_status_inventario_status_inventario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status_inventario"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -1,23 +1,16 @@
 package io.github.jhipster.application.domain;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.Objects;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import com.fasterxml.jackson.annotation.JsonView;
+import javax.persistence.*;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Objects;
 
 /**
  * A Inventario.
@@ -31,44 +24,49 @@ public class Inventario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(View.OveralView.class)
     private Long id;
 
     @Column(name = "numero_loja")
-    @JsonView(View.OveralView.class)
     private String numeroLoja;
 
     @Column(name = "data_inventario")
-    @JsonView(View.OveralView.class)
     private LocalDate dataInventario;
 
     @Column(name = "ordem_servico")
-    @JsonView(View.OveralView.class)
     private String ordemServico;
 
     @Column(name = "gerente_loja")
-    @JsonView(View.OveralView.class)
     private String gerenteLoja;
 
     @Column(name = "lider_inventario")
-    @JsonView(View.OveralView.class)
     private String liderInventario;
 
     @Column(name = "qtd_pessoas")
-    @JsonView(View.OveralView.class)
     private Integer qtdPessoas;
 
     @Column(name = "nome_loja")
-    @JsonView(View.OveralView.class)
     private String nomeLoja;
 
     @ManyToOne
-    @JsonView(View.InventarioView.class)
     private Cliente cliente;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Funcionario funcionarioLider;
+    @ManyToOne
+    private Funcionario funcionario;
+
+    @OneToMany(mappedBy = "inventario")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Transmissao> trasmissoes = new HashSet<>();
+
+    @OneToMany(mappedBy = "inventario")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Cadastro> cadastros = new HashSet<>();
+
+    @OneToMany(mappedBy = "inventario")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<LogStatusInventario> logStatusInventarios = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -183,17 +181,92 @@ public class Inventario implements Serializable {
         this.cliente = cliente;
     }
 
-    public Funcionario getFuncionarioLider() {
-        return funcionarioLider;
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public Inventario funcionarioLider(Funcionario funcionario) {
-        this.funcionarioLider = funcionario;
+    public Inventario funcionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
         return this;
     }
 
-    public void setFuncionarioLider(Funcionario funcionario) {
-        this.funcionarioLider = funcionario;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public Set<Transmissao> getTrasmissoes() {
+        return trasmissoes;
+    }
+
+    public Inventario trasmissoes(Set<Transmissao> transmissaos) {
+        this.trasmissoes = transmissaos;
+        return this;
+    }
+
+    public Inventario addTrasmissoes(Transmissao transmissao) {
+        this.trasmissoes.add(transmissao);
+        transmissao.setInventario(this);
+        return this;
+    }
+
+    public Inventario removeTrasmissoes(Transmissao transmissao) {
+        this.trasmissoes.remove(transmissao);
+        transmissao.setInventario(null);
+        return this;
+    }
+
+    public void setTrasmissoes(Set<Transmissao> transmissaos) {
+        this.trasmissoes = transmissaos;
+    }
+
+    public Set<Cadastro> getCadastros() {
+        return cadastros;
+    }
+
+    public Inventario cadastros(Set<Cadastro> cadastros) {
+        this.cadastros = cadastros;
+        return this;
+    }
+
+    public Inventario addCadastros(Cadastro cadastro) {
+        this.cadastros.add(cadastro);
+        cadastro.setInventario(this);
+        return this;
+    }
+
+    public Inventario removeCadastros(Cadastro cadastro) {
+        this.cadastros.remove(cadastro);
+        cadastro.setInventario(null);
+        return this;
+    }
+
+    public void setCadastros(Set<Cadastro> cadastros) {
+        this.cadastros = cadastros;
+    }
+
+    public Set<LogStatusInventario> getLogStatusInventarios() {
+        return logStatusInventarios;
+    }
+
+    public Inventario logStatusInventarios(Set<LogStatusInventario> logStatusInventarios) {
+        this.logStatusInventarios = logStatusInventarios;
+        return this;
+    }
+
+    public Inventario addLogStatusInventario(LogStatusInventario logStatusInventario) {
+        this.logStatusInventarios.add(logStatusInventario);
+        logStatusInventario.setInventario(this);
+        return this;
+    }
+
+    public Inventario removeLogStatusInventario(LogStatusInventario logStatusInventario) {
+        this.logStatusInventarios.remove(logStatusInventario);
+        logStatusInventario.setInventario(null);
+        return this;
+    }
+
+    public void setLogStatusInventarios(Set<LogStatusInventario> logStatusInventarios) {
+        this.logStatusInventarios = logStatusInventarios;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

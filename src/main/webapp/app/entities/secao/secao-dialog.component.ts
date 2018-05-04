@@ -9,8 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Secao } from './secao.model';
 import { SecaoPopupService } from './secao-popup.service';
 import { SecaoService } from './secao.service';
-import { Transmissao, TransmissaoService } from '../transmissao';
 import { StatusContagem, StatusContagemService } from '../status-contagem';
+import { Transmissao, TransmissaoService } from '../transmissao';
 
 @Component({
     selector: 'jhi-secao-dialog',
@@ -21,48 +21,26 @@ export class SecaoDialogComponent implements OnInit {
     secao: Secao;
     isSaving: boolean;
 
-    transmissaos: Transmissao[];
-
     statuscontagems: StatusContagem[];
+
+    transmissaos: Transmissao[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private secaoService: SecaoService,
-        private transmissaoService: TransmissaoService,
         private statusContagemService: StatusContagemService,
+        private transmissaoService: TransmissaoService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.transmissaoService
-            .query({filter: 'secao-is-null'})
-            .subscribe((res: HttpResponse<Transmissao[]>) => {
-                if (!this.secao.transmissao || !this.secao.transmissao.id) {
-                    this.transmissaos = res.body;
-                } else {
-                    this.transmissaoService
-                        .find(this.secao.transmissao.id)
-                        .subscribe((subRes: HttpResponse<Transmissao>) => {
-                            this.transmissaos = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.statusContagemService
-            .query({filter: 'secao-is-null'})
-            .subscribe((res: HttpResponse<StatusContagem[]>) => {
-                if (!this.secao.statusContagem || !this.secao.statusContagem.id) {
-                    this.statuscontagems = res.body;
-                } else {
-                    this.statusContagemService
-                        .find(this.secao.statusContagem.id)
-                        .subscribe((subRes: HttpResponse<StatusContagem>) => {
-                            this.statuscontagems = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.statusContagemService.query()
+            .subscribe((res: HttpResponse<StatusContagem[]>) => { this.statuscontagems = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.transmissaoService.query()
+            .subscribe((res: HttpResponse<Transmissao[]>) => { this.transmissaos = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -99,11 +77,11 @@ export class SecaoDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackTransmissaoById(index: number, item: Transmissao) {
+    trackStatusContagemById(index: number, item: StatusContagem) {
         return item.id;
     }
 
-    trackStatusContagemById(index: number, item: StatusContagem) {
+    trackTransmissaoById(index: number, item: Transmissao) {
         return item.id;
     }
 }

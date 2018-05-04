@@ -33,19 +33,8 @@ export class CadastroDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.inventarioService
-            .query({filter: 'cadastro-is-null'})
-            .subscribe((res: HttpResponse<Inventario[]>) => {
-                if (!this.cadastro.inventario || !this.cadastro.inventario.id) {
-                    this.inventarios = res.body;
-                } else {
-                    this.inventarioService
-                        .find(this.cadastro.inventario.id)
-                        .subscribe((subRes: HttpResponse<Inventario>) => {
-                            this.inventarios = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.inventarioService.query()
+            .subscribe((res: HttpResponse<Inventario[]>) => { this.inventarios = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {

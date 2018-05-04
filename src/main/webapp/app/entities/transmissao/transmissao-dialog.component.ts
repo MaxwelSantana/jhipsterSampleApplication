@@ -9,10 +9,10 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Transmissao } from './transmissao.model';
 import { TransmissaoPopupService } from './transmissao-popup.service';
 import { TransmissaoService } from './transmissao.service';
-import { Inventario, InventarioService } from '../inventario';
 import { Funcionario, FuncionarioService } from '../funcionario';
 import { Coletor, ColetorService } from '../coletor';
 import { TipoContagem, TipoContagemService } from '../tipo-contagem';
+import { Inventario, InventarioService } from '../inventario';
 
 @Component({
     selector: 'jhi-transmissao-dialog',
@@ -23,80 +23,36 @@ export class TransmissaoDialogComponent implements OnInit {
     transmissao: Transmissao;
     isSaving: boolean;
 
-    inventarios: Inventario[];
-
     funcionarios: Funcionario[];
 
     coletors: Coletor[];
 
     tipocontagems: TipoContagem[];
 
+    inventarios: Inventario[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private transmissaoService: TransmissaoService,
-        private inventarioService: InventarioService,
         private funcionarioService: FuncionarioService,
         private coletorService: ColetorService,
         private tipoContagemService: TipoContagemService,
+        private inventarioService: InventarioService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.inventarioService
-            .query({filter: 'transmissao-is-null'})
-            .subscribe((res: HttpResponse<Inventario[]>) => {
-                if (!this.transmissao.inventario || !this.transmissao.inventario.id) {
-                    this.inventarios = res.body;
-                } else {
-                    this.inventarioService
-                        .find(this.transmissao.inventario.id)
-                        .subscribe((subRes: HttpResponse<Inventario>) => {
-                            this.inventarios = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.funcionarioService
-            .query({filter: 'transmissao-is-null'})
-            .subscribe((res: HttpResponse<Funcionario[]>) => {
-                if (!this.transmissao.funcionario || !this.transmissao.funcionario.id) {
-                    this.funcionarios = res.body;
-                } else {
-                    this.funcionarioService
-                        .find(this.transmissao.funcionario.id)
-                        .subscribe((subRes: HttpResponse<Funcionario>) => {
-                            this.funcionarios = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.coletorService
-            .query({filter: 'transmissao-is-null'})
-            .subscribe((res: HttpResponse<Coletor[]>) => {
-                if (!this.transmissao.coletor || !this.transmissao.coletor.id) {
-                    this.coletors = res.body;
-                } else {
-                    this.coletorService
-                        .find(this.transmissao.coletor.id)
-                        .subscribe((subRes: HttpResponse<Coletor>) => {
-                            this.coletors = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.tipoContagemService
-            .query({filter: 'transmissao-is-null'})
-            .subscribe((res: HttpResponse<TipoContagem[]>) => {
-                if (!this.transmissao.tipoContagem || !this.transmissao.tipoContagem.id) {
-                    this.tipocontagems = res.body;
-                } else {
-                    this.tipoContagemService
-                        .find(this.transmissao.tipoContagem.id)
-                        .subscribe((subRes: HttpResponse<TipoContagem>) => {
-                            this.tipocontagems = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.funcionarioService.query()
+            .subscribe((res: HttpResponse<Funcionario[]>) => { this.funcionarios = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.coletorService.query()
+            .subscribe((res: HttpResponse<Coletor[]>) => { this.coletors = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.tipoContagemService.query()
+            .subscribe((res: HttpResponse<TipoContagem[]>) => { this.tipocontagems = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.inventarioService.query()
+            .subscribe((res: HttpResponse<Inventario[]>) => { this.inventarios = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -133,10 +89,6 @@ export class TransmissaoDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackInventarioById(index: number, item: Inventario) {
-        return item.id;
-    }
-
     trackFuncionarioById(index: number, item: Funcionario) {
         return item.id;
     }
@@ -146,6 +98,10 @@ export class TransmissaoDialogComponent implements OnInit {
     }
 
     trackTipoContagemById(index: number, item: TipoContagem) {
+        return item.id;
+    }
+
+    trackInventarioById(index: number, item: Inventario) {
         return item.id;
     }
 }

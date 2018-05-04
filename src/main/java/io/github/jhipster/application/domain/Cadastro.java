@@ -116,8 +116,7 @@ public class Cadastro implements Serializable {
     @Column(name = "bin_customizado_3")
     private Boolean binCustomizado3;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Inventario inventario;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

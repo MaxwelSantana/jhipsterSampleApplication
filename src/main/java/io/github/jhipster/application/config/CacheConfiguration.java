@@ -64,6 +64,19 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.ConfiguracaoColetor.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Configuracao.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Cliente.class.getName() + ".inventarios", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Funcionario.class.getName() + ".inventarios", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Funcionario.class.getName() + ".trasmissoes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Coletor.class.getName() + ".trasmissoes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.TipoContagem.class.getName() + ".trasmissoes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.StatusContagem.class.getName() + ".secoes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.StatusContagem.class.getName() + ".contagens", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Inventario.class.getName() + ".trasmissoes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Inventario.class.getName() + ".cadastros", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Inventario.class.getName() + ".logStatusInventarios", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Transmissao.class.getName() + ".secoes", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Secao.class.getName() + ".contagens", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.MotivoAlteracao.class.getName() + ".contagens", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Contagem.class.getName() + ".logAlteracoes", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

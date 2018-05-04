@@ -9,8 +9,8 @@ import { JhipsterSampleApplicationTestModule } from '../../../test.module';
 import { LogStatusInventarioDialogComponent } from '../../../../../../main/webapp/app/entities/log-status-inventario/log-status-inventario-dialog.component';
 import { LogStatusInventarioService } from '../../../../../../main/webapp/app/entities/log-status-inventario/log-status-inventario.service';
 import { LogStatusInventario } from '../../../../../../main/webapp/app/entities/log-status-inventario/log-status-inventario.model';
-import { StatusInventarioService } from '../../../../../../main/webapp/app/entities/status-inventario';
 import { InventarioService } from '../../../../../../main/webapp/app/entities/inventario';
+import { StatusInventarioService } from '../../../../../../main/webapp/app/entities/status-inventario';
 
 describe('Component Tests', () => {
 
@@ -26,8 +26,8 @@ describe('Component Tests', () => {
                 imports: [JhipsterSampleApplicationTestModule],
                 declarations: [LogStatusInventarioDialogComponent],
                 providers: [
-                    StatusInventarioService,
                     InventarioService,
+                    StatusInventarioService,
                     LogStatusInventarioService
                 ]
             })

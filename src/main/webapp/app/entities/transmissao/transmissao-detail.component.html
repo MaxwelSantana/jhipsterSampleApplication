@@ -12,12 +12,6 @@
         <dd>
             <span>{{transmissao.versaoColetor}}</span>
         </dd>
-        <dt><span>Inventario</span></dt>
-        <dd>
-            <div *ngIf="transmissao.inventario">
-                <a [routerLink]="['/inventario', transmissao.inventario?.id]">{{transmissao.inventario?.id}}</a>
-            </div>
-        </dd>
         <dt><span>Funcionario</span></dt>
         <dd>
             <div *ngIf="transmissao.funcionario">
@@ -34,6 +28,12 @@
         <dd>
             <div *ngIf="transmissao.tipoContagem">
                 <a [routerLink]="['/tipo-contagem', transmissao.tipoContagem?.id]">{{transmissao.tipoContagem?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Inventario</span></dt>
+        <dd>
+            <div *ngIf="transmissao.inventario">
+                <a [routerLink]="['/inventario', transmissao.inventario?.id]">{{transmissao.inventario?.id}}</a>
             </div>
         </dd>
     </dl>
